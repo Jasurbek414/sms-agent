@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Ilova nomi -->
+    <string name="app_name">SMS Agent</string>
+    <string name="app_name_full">Universal SMS Agent</string>
+
+    <!-- Umumiy -->
+    <string name="ok">OK</string>
+    <string name="cancel">Bekor qilish</string>
+    <string name="save">Saqlash</string>
+    <string name="delete">O\'chirish</string>
+    <string name="retry">Qayta urinish</string>
+    <string name="close">Yopish</string>
+    <string name="loading">Yuklanmoqda…</string>
+    <string name="error">Xatolik</string>
+    <string name="success">Muvaffaqiyatli</string>
+
+    <!-- SMS holatlari -->
+    <string name="sms_status_pending">Kutilmoqda</string>
+    <string name="sms_status_sending">Yuborilmoqda</string>
+    <string name="sms_status_sent">Yuborildi</string>
+    <string name="sms_status_delivered">Yetkazildi</string>
+    <string name="sms_status_failed">Xatolik</string>
+    <string name="sms_status_cancelled">Bekor qilindi</string>
+
+    <!-- Bildirishnomalar -->
+    <string name="notification_service_title">SMS Agent ishlamoqda</string>
+    <string name="notification_service_text">SMS yuborish xizmati faol</string>
+</resources>

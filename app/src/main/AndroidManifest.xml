@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ==========================================================================
+    SMS Agent Platform - AndroidManifest.xml
+    Universal taksi SMS agent platformasi
+    Haydovchining o'z raqamidan SMS yuboruvchi yordamchi ilova
+    ==========================================================================
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ===================================================================
+         RUXSATLAR (Permissions)
+         =================================================================== -->
+
+    <!-- SMS yuborish ruxsati - asosiy funksionallik -->
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <!-- Telefon holati va raqamini o'qish -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+
+    <!-- Internet va tarmoq holati (server bilan aloqa uchun) -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Qurilma qayta yoqilganda xizmatni avtomatik ishga tushirish -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- Foreground Service - uzluksiz SMS yuborish xizmati -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+
+    <!-- Bildirishnomalar (Android 13+) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- Kamera - QR kod skanerlash uchun -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- Batareya optimizatsiyasini o'chirish so'rovi (uzluksiz ishlash uchun) -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+    <!-- Wake Lock - qurilma uyquga ketmasligi uchun -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- Vibratsiya - bildirishnomalar uchun -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- ===================================================================
+         QURILMA XUSUSIYATLARI (Features)
+         =================================================================== -->
+
+    <!-- Kamera ixtiyoriy - QR scanner uchun kerak, lekin ilovasiz ham ishlaydi -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
+    <!-- SMS xususiyati - bu ilova SMS yuborishi kerak -->
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="true" />
+
+    <!-- ===================================================================
+         ILOVA KOMPONENTLARI
+         =================================================================== -->
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SmsAgent"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:enableOnBackInvokedCallback="true"
+        tools:targetApi="35">
+
+        <!-- =============================================================
+             ACTIVITY - Asosiy ekran
+             ============================================================= -->
+
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.SmsAgent.Splash"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+
+            <!-- Ilovani ishga tushirish uchun intent filter -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- Deep link orqali QR skanerlash natijasini qabul qilish -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="smsagent"
+                    android:host="connect" />
+            </intent-filter>
+        </activity>
+
+        <!-- =============================================================
+             SERVICE - SMS Agent Foreground Service
+             ============================================================= -->
+
+        <!-- Asosiy SMS yuborish xizmati -->
+        <service
+            android:name=".service.SmsAgentService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="specialUse"
+            android:stopWithTask="false">
+
+            <!-- specialUse foreground service uchun izoh -->
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="SMS yuborish agenti - taksi park serveridan kelgan SMS so'rovlarini uzluksiz qabul qilib, haydovchi raqamidan SMS yuboradi" />
+        </service>
+
+        <!-- Bildirishnomalarni o'qish xizmati (taksi dasturi bildirishnomalarini tutish uchun) -->
+        <service
+            android:name=".service.SmsNotificationListenerService"
+            android:label="SMS Agent Notification Listener"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
+        <!-- =============================================================
+             RECEIVERS - Broadcast Receiver-lar
+             ============================================================= -->
+
+        <!-- Qurilma qayta yoqilganda xizmatni avtomatik ishga tushirish -->
+        <receiver
+            android:name=".receiver.BootReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:directBootAware="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <!-- Huawei qurilmalar uchun -->
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+
+        <!-- SMS yuborilganlik holatini kuzatuvchi receiver -->
+        <receiver
+            android:name=".receiver.SmsSentReceiver"
+            android:enabled="true"
+            android:exported="false" />
+
+        <!-- SMS yetkazilganlik holatini kuzatuvchi receiver -->
+        <receiver
+            android:name=".receiver.SmsDeliveryReceiver"
+            android:enabled="true"
+            android:exported="false" />
+
+        <!-- Ichki SMS so'rovlarini qabul qiluvchi receiver -->
+        <receiver
+            android:name=".receiver.LocalSmsRequestReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.taxisms.agent.action.SEND_SMS_REQUEST" />
+                <action android:name="com.taxisms.agent.action.CANCEL_SMS_REQUEST" />
+                <action android:name="com.taxisms.agent.action.CHECK_SMS_STATUS" />
+            </intent-filter>
+        </receiver>
+
+        <!-- =============================================================
+             PROVIDER - Hilt va WorkManager uchun
+             ============================================================= -->
+
+        <!-- WorkManager Initializer-ni o'chirish (manual init uchun) -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="androidx.work.WorkManagerInitializer"
+                android:value="androidx.startup"
+                tools:node="remove" />
+        </provider>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,25 @@
+# Android Studio / IntelliJ Project Files
+.idea/
+*.iml
+.DS_Store
+out/
+
+# Gradle Build Files
+.gradle/
+build/
+app/build/
+.kotlin/
+
+# Local Configuration (Contains local SDK paths)
+local.properties
+
+# Log Files
+*.log
+
+# Keystore Files
+*.jks
+*.keystore
+*.pepk
+
+# OS Generated Files
+Thumbs.db

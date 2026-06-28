@@ -1,0 +1,18 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Outer green speech bubble -->
+    <path
+        android:fillColor="#2EA043"
+        android:pathData="M30,30 h48 v36 H42 L30,78 V30 z" />
+    <!-- Yellow taxi badge inside -->
+    <path
+        android:fillColor="#D29922"
+        android:pathData="M44,40 h20 v12 H44 V40 z" />
+    <!-- Taxi check pattern -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M46,42 h4 v4 H46 V42 z M54,42 h4 v4 H54 V42 z M50,46 h4 v4 H50 V46 z M58,46 h4 v4 H58 V46 z" />
+</vector>
