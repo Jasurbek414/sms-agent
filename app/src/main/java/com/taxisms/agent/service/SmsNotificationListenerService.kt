@@ -86,6 +86,17 @@ class SmsNotificationListenerService : NotificationListenerService() {
                 val fullContent = "$title $text"
                 Timber.d("Yangi bildirishnoma olindi: pkg=$packageName, content=$fullContent")
 
+                // Buyurtma bekor bo'lganligini tekshirish (Заказ отменен, bekor, otkaz, отмена)
+                val cancelPattern = Pattern.compile(
+                    "(?:отменен|отмена|отказался|снят|bekor|otkaz)", 
+                    Pattern.CASE_INSENSITIVE
+                )
+                if (cancelPattern.matcher(fullContent).find()) {
+                    settingsRepository.setValue("active_client_phone", "")
+                    Timber.i("Buyurtma bekor qilindi (Cancellation detected). Saqlangan mijoz raqami tozalandi.")
+                    return@launch
+                }
+
                 // Kalit so'z filtri (masalan: safar, yakunlandi, yo'l haqi)
                 val keywordFilter = settingsRepository.getValue("notification_keyword_filter", "")
                 if (keywordFilter.isNotEmpty() && !fullContent.contains(keywordFilter, ignoreCase = true)) {
