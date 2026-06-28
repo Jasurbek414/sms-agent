@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <su.skat.client.ui.widgets.route.RouteToggleView android:layout_gravity="top" android:id="@id/orderRoute" android:layout_width="fill_parent" android:layout_height="0.0dip" android:minHeight="300.0dip" android:layout_weight="2.0" />
+    <LinearLayout android:gravity="center" android:id="@id/orderPriceContainer" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/font_taxometer" android:textColor="?accentedFontColor" android:gravity="end|center" android:id="@id/orderPrice" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/init_zero" />
+        <TextView android:textSize="@dimen/font_base_large" android:gravity="start|center" android:id="@id/currencyText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="₽" />
+    </LinearLayout>
+    <TextView android:textSize="@dimen/font_increased" android:gravity="center" android:id="@id/orderStatusText" android:padding="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" style="?textStyle" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/orderActionLayout" android:padding="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:gravity="center" android:id="@id/receiptButton" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/check" android:layout_weight="1.0" android:layout_marginEnd="5.0dip" style="?buttonPrimaryStyle" />
+        <Button android:gravity="center" android:id="@id/orderCloseButton" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/close" android:layout_weight="1.0" style="?buttonAccentedStyle" />
+    </LinearLayout>
+</LinearLayout>

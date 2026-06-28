@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/extras_dialog" android:layout_width="fill_parent" android:layout_height="fill_parent" android:minHeight="40.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListView android:id="@id/extras_list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:divider="?inputBackgroundFocused" android:dividerHeight="1.0dip" android:layout_weight="1.0" />
+    <LinearLayout android:orientation="horizontal" android:padding="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:gravity="center" android:id="@id/cancel" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/cancel" android:layout_weight="1.0" style="?buttonStyle" />
+        <Button android:gravity="center" android:id="@id/ok" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/ok" android:layout_weight="1.0" android:layout_marginStart="5.0dip" style="?buttonPrimaryStyle" />
+    </LinearLayout>
+</LinearLayout>

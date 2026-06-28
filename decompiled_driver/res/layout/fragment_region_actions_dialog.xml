@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:padding="@dimen/activity_vertical_margin" android:layout_width="fill_parent" android:layout_height="fill_parent" style="?mainLayoutStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/font_title" android:gravity="center" android:id="@id/regionActionsTitle" android:padding="@dimen/font_base" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/activity_vertical_margin" android:text="" style="?textStyle" />
+    <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <Button android:textSize="@dimen/font_base_large" android:gravity="center" android:id="@id/regionActionsRegister" android:padding="@dimen/font_base_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/activity_vertical_margin" android:text="@string/register" style="?buttonPrimaryStyle" />
+            <Button android:textSize="@dimen/font_base_large" android:gravity="center" android:id="@id/regionActionsOrdersList" android:padding="@dimen/font_base_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/activity_vertical_margin" android:text="@string/free_orders" style="?buttonStyle" />
+            <Button android:textSize="@dimen/font_base_large" android:gravity="center" android:id="@id/regionActionsCarsList" android:padding="@dimen/font_base_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/activity_vertical_margin" android:text="@string/vehicle_list" style="?buttonStyle" />
+            <Button android:textSize="@dimen/font_base_large" android:gravity="center" android:id="@id/regionActionsUnregister" android:padding="@dimen/font_base_large" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/checkout" style="?buttonStyle" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

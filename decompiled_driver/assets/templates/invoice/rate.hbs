@@ -1,0 +1,26 @@
+--------------------------------------
+<br/>
+{{#neq seatPrice "0.00"}}
+<b>{{ __ "get_in_car" }}</b>: {{ seatPrice }}{{ $ }}<br/>
+{{/neq}}
+{{#neq minFare "0.00"}}
+<b>{{ __ "minimal_cost" }}</b>: {{ minFare }}{{ $ }}<br/>
+{{/neq}}
+
+{{#neq markup "0.00"}}
+<b>{{ __ "markup" }}</b>: {{ markup }}{{ $ }}<br/>
+{{/neq}}
+{{#neq discount "0.00"}}
+<b>{{ __ "discount" }}</b>: {{ discount }}{{ $ }}<br/>
+{{/neq}}
+
+{{#neq waitingPrice "0.00"}}
+<b>{{ __ "waiting_cost" }}</b>: {{ waitingPrice }}{{ $ }}<br/>
+{{/neq}}
+{{#neq waitingTime "00:00:00"}}
+<b>{{ __ "wait_time" }}</b>: {{ waitingTime }}<br/>
+{{/neq}}
+{{#neq roundTo 0}}
+<b>{{ __ "around_to" }}</b>: {{ roundTo }}{{ $ }}<br/>
+{{/neq}}
+<h1>{{ __ "total" }}: {{ fare }}{{ $ }}</h1>

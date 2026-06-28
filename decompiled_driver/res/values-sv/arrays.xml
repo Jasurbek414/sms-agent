@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="foTextSizes">
+        <item>Mikro</item>
+        <item>Liten</item>
+        <item>Normal</item>
+        <item>Stor</item>
+        <item>Större</item>
+    </string-array>
+    <string-array name="listOrientation">
+        <item>Auto</item>
+        <item>Porträtt</item>
+        <item>Album</item>
+    </string-array>
+    <string-array name="listTheme">
+        <item>Mörk</item>
+        <item>Kontrast</item>
+        <item>Ljus</item>
+    </string-array>
+    <string-array name="regionSizes">
+        <item>Mikro</item>
+        <item>Liten</item>
+        <item>Normal</item>
+        <item>Stor</item>
+        <item>Större</item>
+    </string-array>
+</resources>

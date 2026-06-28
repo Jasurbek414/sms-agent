@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actions
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <action intentName="su.skat.client.actions.intent.ACCEPT_ORDER" queryPatterns="@array/acceptOrderActions">
+        <parameter name="time" type="https://schema.org/Time" />
+        <fulfillment urlTemplate="su.skat.client://order/accept{?time}">
+            <parameter-mapping intentParameter="time" urlParameter="time" />
+        </fulfillment>
+    </action>
+    <action intentName="su.skat.client.actions.intent.REJECT_ORDER" queryPatterns="@array/rejectOrderActions">
+        <fulfillment fulfillmentMode="actions.fulfillment.DEEPLINK" urlTemplate="su.skat.client://order/reject" />
+        <fulfillment fulfillmentMode="actions.fulfillment.DEEPLINK" requiredForegroundActivity="su.skat.client/su.skat.client.foreground.MainActivity" urlTemplate="su.skat.client://order/reject" />
+    </action>
+    <action intentName="su.skat.client.actions.intent.SHOW_ORDER" queryPatterns="@array/showActiveOrderActions">
+        <fulfillment fulfillmentMode="actions.fulfillment.DEEPLINK" urlTemplate="su.skat.client://order/show/active" />
+        <fulfillment fulfillmentMode="actions.fulfillment.DEEPLINK" requiredForegroundActivity="su.skat.client/su.skat.client.foreground.MainActivity" urlTemplate="su.skat.client://order/show/active" />
+    </action>
+</actions>

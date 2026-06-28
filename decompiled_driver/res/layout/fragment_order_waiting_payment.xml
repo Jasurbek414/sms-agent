@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.fragment.app.FragmentContainerView android:id="@id/orderDetails" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <ProgressBar android:layout_gravity="center" android:id="@id/progressBar" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:indeterminate="true" android:scaleX="1.5" android:scaleY="1.5" style="?android:progressBarStyleSmall" />
+        <TextView android:textSize="?largeFontSize" android:gravity="center|top" android:id="@id/textView" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/payment_expectation" style="?accentedTextStyle" />
+        <TextView android:textSize="?smallFontSize" android:textColor="?noteFontColor" android:gravity="center|top" android:id="@id/textView1" android:padding="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/payment_expectation_hint" style="?textStyle" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/font_taxometer" android:textColor="?accentedFontColor" android:gravity="end|center" android:id="@id/orderPrice" android:focusable="true" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/init_zero" />
+        <TextView android:textSize="@dimen/font_base_large" android:gravity="start|center" android:id="@id/priceCurrency" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="₽" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/orderActionLayout" android:padding="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:enabled="false" android:gravity="center" android:id="@id/cashAcceptedButton" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/cash_accepted" android:layout_weight="1.0" android:layout_marginEnd="5.0dip" style="?buttonPrimaryStyle" />
+        <Button android:gravity="center" android:id="@id/request_payment_status_button" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/request_payment_status" android:layout_weight="1.0" style="?buttonPrimaryStyle" />
+    </LinearLayout>
+</LinearLayout>

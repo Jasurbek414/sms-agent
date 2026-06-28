@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="foTextSizes">
+        <item>Micro</item>
+        <item>Small</item>
+        <item>Normal</item>
+        <item>Big</item>
+        <item>Very big</item>
+    </string-array>
+    <string-array name="listOrientation">
+        <item>Auto</item>
+        <item>Portrait</item>
+        <item>Album</item>
+    </string-array>
+    <string-array name="listTheme">
+        <item>Dark</item>
+        <item>Contrast</item>
+        <item>Light</item>
+    </string-array>
+    <string-array name="regionSizes">
+        <item>Micro</item>
+        <item>Small</item>
+        <item>Normal</item>
+        <item>Big</item>
+        <item>Very big</item>
+    </string-array>
+</resources>

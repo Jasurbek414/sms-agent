@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="NavSystemList">
+        <item>Waze</item>
+        <item>OrganicMaps</item>
+        <item>2GIS</item>
+        <item>Yandex Navigator</item>
+        <item>Google Maps</item>
+        <item>Cityguide</item>
+        <item>GeoNET</item>
+        <item>bGEO</item>
+        <item>AzNav</item>
+        <item>Navitel</item>
+    </string-array>
+    <string-array name="NavSystemValues">
+        <item>waze</item>
+        <item>organicmaps</item>
+        <item>2gis</item>
+        <item>yandex</item>
+        <item>google</item>
+        <item>cityguide</item>
+        <item>geonet</item>
+        <item>bgeo</item>
+        <item>aznav</item>
+        <item>navitel</item>
+    </string-array>
+    <string-array name="foTextSizes">
+        <item>Micro</item>
+        <item>Kiçik</item>
+        <item>Adi</item>
+        <item>Böyük</item>
+        <item>Çox böyük</item>
+    </string-array>
+    <string-array name="foTextSizesValues">
+        <item>micro</item>
+        <item>kiçik</item>
+        <item>adi</item>
+        <item>böyük</item>
+        <item>çox böyük</item>
+    </string-array>
+    <string-array name="listOrientation">
+        <item>Avtomatik</item>
+        <item>Portret</item>
+        <item>Albom</item>
+    </string-array>
+    <string-array name="listTheme">
+        <item>Qaranlıq</item>
+        <item>Ziddiyyət</item>
+        <item>Yüngül</item>
+    </string-array>
+    <string-array name="regionSizes">
+        <item>Micro</item>
+        <item>Kiçik</item>
+        <item>Adi</item>
+        <item>Böyük</item>
+        <item>Çox böyük</item>
+    </string-array>
+    <string-array name="regionSizesValues">
+        <item>mikro</item>
+        <item>kiçik</item>
+        <item>normal</item>
+        <item>böyük</item>
+        <item>böyük</item>
+    </string-array>
+    <string-array name="themeValues">
+        <item>dark</item>
+        <item>contrast</item>
+        <item>light</item>
+    </string-array>
+    <string-array name="valsOrientation">
+        <item>auto</item>
+        <item>port</item>
+        <item>alb</item>
+    </string-array>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<su.skat.client.ui.widgets.SquareGridLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/regionItemLayoutView" android:paddingTop="3.0dip" android:paddingBottom="3.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerVertical="true" style="?listItemStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="?largeFontSize" android:textStyle="bold" android:gravity="center" android:id="@id/regionItemTitleText" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?accentedTextStyle" />
+    <TextView android:textStyle="bold" android:gravity="center" android:id="@id/regionItemContentText" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?textStyle" />
+</su.skat.client.ui.widgets.SquareGridLayout>

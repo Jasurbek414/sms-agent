@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/emptyList" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/emptyListEmpty" android:padding="20.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:textAlignment="center">
+            <TextView android:textSize="?largeFontSize" android:textColor="@color/faded" android:id="@id/emptyListTitle" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/list_is_empty" android:textAlignment="center" />
+            <TextView android:textSize="?smallFontSize" android:textColor="@color/faded" android:gravity="center|top" android:id="@id/emptyListDescription" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/no_items_to_display" android:textAlignment="center" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/emptyListLoading" android:padding="20.0dip" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="fill_parent" android:textAlignment="center">
+            <TextView android:textSize="?largeFontSize" android:textColor="@color/faded" android:id="@id/emptyListLoadingTitle" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/list_is_loading" android:textAlignment="center" />
+            <TextView android:textSize="?smallFontSize" android:textColor="@color/faded" android:gravity="center|top" android:id="@id/emptyListLoadingDescription" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wait_for_response" android:textAlignment="center" />
+        </LinearLayout>
+    </LinearLayout>
+</merge>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="foTextSizes">
+        <item>მიკრო</item>
+        <item>მცირე</item>
+        <item>საშუალო</item>
+        <item>დიდი</item>
+        <item>ძალიან დიდი</item>
+    </string-array>
+    <string-array name="listOrientation">
+        <item>ავტო</item>
+        <item>პორტრეტი</item>
+        <item>ალბომი</item>
+    </string-array>
+    <string-array name="listTheme">
+        <item>მუქი</item>
+        <item>კონტრასტული</item>
+        <item>ნათელი</item>
+    </string-array>
+    <string-array name="regionSizes">
+        <item>ძალიან მცირე</item>
+        <item>მცირე</item>
+        <item>ნორმალური</item>
+        <item>დიდი</item>
+        <item>ძალიან დიდი</item>
+    </string-array>
+</resources>

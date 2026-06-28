@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/emptyList" android:padding="20.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:textAlignment="center"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="?largeFontSize" android:textColor="@color/faded" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/list_is_empty" android:textAlignment="center" />
+    <TextView android:textSize="?smallFontSize" android:textColor="@color/faded" android:gravity="center|top" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/no_items_to_display" android:textAlignment="center" />
+</LinearLayout>

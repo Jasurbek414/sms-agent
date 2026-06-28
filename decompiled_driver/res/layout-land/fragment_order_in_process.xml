@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/backgroundLayout" android:padding="0.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" style="?taxometrLayoutStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <androidx.fragment.app.FragmentContainerView android:id="@id/orderDetails" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" />
+        <LinearLayout android:gravity="bottom" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <LinearLayout android:orientation="horizontal" android:padding="5.0dip" android:layout_width="fill_parent" android:layout_height="0.0dip" android:baselineAligned="false" android:layout_weight="1.0">
+                <LinearLayout android:layout_gravity="bottom" android:orientation="vertical" android:id="@id/taxometrInfoLayout" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginEnd="5.0dip">
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="5.0dip">
+                        <su.skat.client.ui.widgets.icons.Icon android:textSize="@dimen/large_icon_size" android:gravity="center" android:id="@id/standTimeIcon" android:layout_width="28.0dip" android:layout_height="fill_parent" android:text="@string/icon_fa_clock_o" />
+                        <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                            <TextView android:ellipsize="start" android:gravity="end|center" android:id="@id/standTimeText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/init_zero" android:singleLine="true" style="?textStyle" />
+                            <TextView android:ellipsize="start" android:gravity="end|center" android:id="@id/totalTimeText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/init_zero" android:singleLine="true" style="?textStyle" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                        <su.skat.client.ui.widgets.icons.Icon android:textSize="@dimen/small_icon_size" android:gravity="center" android:id="@id/distanceIcon" android:layout_width="28.0dip" android:layout_height="fill_parent" android:text="@string/icon_fa_road" />
+                        <TextView android:ellipsize="end" android:gravity="end|center" android:id="@id/distanceText" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/init_zero" android:singleLine="true" android:layout_weight="1.0" style="?textStyle" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                        <su.skat.client.ui.widgets.icons.Icon android:textSize="@dimen/small_icon_size" android:gravity="center" android:id="@id/stopPauseIcon" android:layout_width="28.0dip" android:layout_height="fill_parent" android:text="@string/icon_fa_pause" />
+                        <TextView android:ellipsize="end" android:gravity="end|center" android:id="@id/stopPauseText" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/init_zero" android:singleLine="true" android:layout_weight="1.0" style="?textStyle" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:gravity="center" android:layout_gravity="bottom|center" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="2.0">
+                    <LinearLayout android:gravity="bottom" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+                        <su.skat.client.ui.widgets.NoPaddingTextView android:textSize="@dimen/font_increased" android:gravity="bottom|center" android:id="@id/orderStatusText" android:padding="5.0dip" android:paddingBottom="0.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" style="?textStyle" />
+                    </LinearLayout>
+                    <TextView android:textSize="@dimen/font_taxometer" android:textColor="?accentedFontColor" android:gravity="center" android:id="@id/taximeterPriceText" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/init_zero" android:maxLines="1" />
+                    <TextView android:gravity="center" android:id="@id/discountText" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" style="?accentedTextStyle" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="5.0dip" android:paddingEnd="5.0dip">
+                <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginEnd="5.0dip">
+                    <su.skat.client.ui.widgets.icons.Icon android:textSize="@dimen/large_icon_size" android:gravity="center" android:id="@id/icon2" android:layout_width="28.0dip" android:layout_height="fill_parent" android:text="@string/icon_fa_usd" />
+                    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <TextView android:ellipsize="end" android:gravity="end|center" android:id="@id/standCostText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/init_zero" android:singleLine="true" style="?textStyle" />
+                        <TextView android:ellipsize="end" android:gravity="end|center" android:id="@id/distanceCostText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/init_zero" android:singleLine="true" style="?textStyle" />
+                    </LinearLayout>
+                </LinearLayout>
+                <Button android:gravity="center" android:layout_gravity="bottom" android:id="@id/rateName" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/rate" android:layout_weight="2.0" style="?buttonStyle" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:paddingTop="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="5.0dip" android:paddingEnd="5.0dip">
+                <LinearLayout android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" android:layout_marginEnd="5.0dip">
+                    <su.skat.client.ui.widgets.icons.IconButton android:textSize="@dimen/large_icon_size" android:gravity="center" android:id="@id/startNavigatorButton" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/icon_fa_location_arrow" android:layout_weight="1.0" style="?buttonStyle" />
+                    <su.skat.client.ui.widgets.icons.IconButton android:textSize="@dimen/large_icon_size" android:gravity="center" android:id="@id/orderChatButton" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/icon_fa_comments" android:layout_weight="1.0" android:layout_marginStart="5.0dip" style="?buttonStyle" />
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="2.0">
+                    <su.skat.client.ui.widgets.icons.IconButton android:textSize="@dimen/large_icon_size" android:gravity="center" android:id="@id/taxShowInfoButton" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/icon_fa_info" android:layout_weight="1.0" android:layout_marginEnd="5.0dip" style="?buttonStyle" />
+                    <su.skat.client.ui.widgets.icons.IconButton android:textSize="@dimen/large_icon_size" android:gravity="center" android:id="@id/orderExtrasButton" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/icon_fa_cart_plus" android:layout_weight="1.0" style="?buttonStyle" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:id="@id/orderActionLayout" android:padding="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+                <Button android:gravity="center" android:id="@id/pauseButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pause" android:layout_marginEnd="5.0dip" style="?buttonStyle" />
+                <Button android:gravity="center" android:id="@id/standActivateButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/stand" android:layout_marginEnd="5.0dip" style="?buttonStyle" />
+                <Button android:gravity="center" android:id="@id/orderStopButton" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/stop" android:layout_weight="2.0" style="?buttonPrimaryStyle" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

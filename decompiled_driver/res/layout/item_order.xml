@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<su.skat.client.ui.widgets.OrderItemLayout android:orientation="vertical" android:id="@id/orderItemLayout" android:padding="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?listItemStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip">
+        <TextView android:textSize="@dimen/font_base" android:textColor="?noteFontColor" android:gravity="start" android:id="@id/orderItemStatus" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" style="?textStyle" />
+        <TextView android:gravity="end" android:id="@id/orderItemTime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="10:00" android:layout_marginStart="10.0dip" android:layout_marginEnd="10.0dip" style="?textStyle" />
+        <TextView android:textColor="?noteFontColor" android:gravity="end" android:id="@id/orderItemDistance" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="5km" style="?textStyle" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="5.0dip">
+            <LinearLayout android:gravity="start|center" android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <LinearLayout android:orientation="horizontal" android:id="@id/orderItemExtras" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+            </LinearLayout>
+            <LinearLayout android:gravity="end|center" android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <TextView android:textSize="@dimen/font_increased" android:gravity="end" android:id="@id/orderItemAmount" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="32434.00" android:layout_weight="1.0" android:layout_marginStart="5.0dip" style="?textStyle" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip">
+            <TextView android:textSize="?largeFontSize" android:id="@id/orderItemSrc" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Красноармейская улица, д. 318" style="?accentedTextStyle" />
+            <TextView android:id="@id/orderItemRoute" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Леваневского улица, д. 5" style="?increasedTextStyle" />
+        </LinearLayout>
+        <TextView android:id="@id/orderItemName" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Название?" style="?textStyle" />
+        <TextView android:id="@id/orderItemService" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Служба Сантехники" style="?textStyle" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/orderItemCounterPartyLayout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <su.skat.client.ui.widgets.icons.Icon android:textColor="@drawable/icon_states" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/icon_fa_address_card" android:layout_marginEnd="5.0dip" style="?textStyle" />
+            <TextView android:id="@id/orderItemCounterPartyName" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" style="?textStyle" />
+        </LinearLayout>
+        <TextView android:textSize="?baseFontSize" android:textColor="?noteFontColor" android:id="@id/orderItemComment" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Комментарий" />
+    </LinearLayout>
+</su.skat.client.ui.widgets.OrderItemLayout>

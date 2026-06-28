@@ -1,0 +1,19 @@
+
+.skat-marker {
+    background: url(images/skat-marker.png);
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    width: 52px;
+    height: 46px;
+    font-weight: bold;
+    font-size: 120%;
+}
+
+.leaflet-marker-pane > :not(.skat-marker) {
+  -webkit-transition: transform 1s linear;
+  -moz-transition: transform 1s linear;
+  -o-transition: transform 1s linear;
+  -ms-transition: transform 1s linear;
+  transition: transform 1s linear;
+}

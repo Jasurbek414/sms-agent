@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/topPanelLayout" android:layout_width="fill_parent" android:layout_height="34.0sp" style="?topPanelStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <su.skat.client.ui.widgets.icons.IconButton android:textSize="@dimen/large_icon_size" android:textColor="@color/mainFontColor" android:gravity="bottom" android:layout_gravity="center" android:id="@id/drawerToggle" android:padding="0.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_margin="0.0dip" android:text="@string/icon_fa_bars" style="?mainLayoutStyle" />
+    <ImageButton android:id="@id/connectionStatusImage" android:background="#00000000" android:padding="2.0dip" android:focusable="true" android:clickable="true" android:layout_width="32.0sp" android:layout_height="fill_parent" android:src="@drawable/connecterr" android:scaleType="fitCenter" />
+    <ImageView android:id="@id/gpsStatusImage" android:padding="2.0dip" android:layout_width="32.0sp" android:layout_height="fill_parent" android:src="@drawable/gpserr" />
+    <TextView android:gravity="center_vertical" android:id="@id/gpsStatusText" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="" android:layout_weight="1.0" android:paddingStart="5.0dip" android:paddingEnd="5.0dip" style="?textStyle" />
+    <TextView android:gravity="end|center" android:id="@id/prepaidDateText" android:paddingLeft="5.0dip" android:paddingRight="5.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent" android:textAlignment="gravity" android:paddingStart="5.0dip" android:paddingEnd="5.0dip" style="?textStyle" />
+    <ImageView android:id="@id/systemBusyStateEnabledImage" android:padding="2.0dip" android:visibility="gone" android:layout_width="32.0sp" android:layout_height="fill_parent" android:src="@drawable/system_busy_indicator" />
+    <ImageView android:id="@id/busyStateEnabledImage" android:padding="2.0dip" android:visibility="gone" android:layout_width="32.0sp" android:layout_height="fill_parent" android:src="@drawable/driver_busy_indicator" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/preOrdersLayout" android:layout_width="wrap_content" android:layout_height="fill_parent">
+        <ImageView android:padding="2.0dip" android:layout_width="32.0sp" android:layout_height="fill_parent" android:src="@drawable/preorder" />
+        <TextView android:gravity="center_vertical" android:id="@id/preOrdersCountText" android:paddingLeft="5.0dip" android:paddingRight="5.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/init_zero" android:paddingStart="5.0dip" android:paddingEnd="5.0dip" style="?textStyle" />
+    </LinearLayout>
+    <ImageView android:id="@id/balanceImage" android:padding="2.0dip" android:layout_width="32.0sp" android:layout_height="fill_parent" android:src="@drawable/coins" />
+    <TextView android:gravity="center_vertical" android:id="@id/balanceText" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/init_zero" android:paddingStart="5.0dip" android:paddingEnd="5.0dip" style="?textStyle" />
+    <ImageButton android:id="@id/alertButton" android:background="#00000000" android:padding="2.0dip" android:focusable="true" android:visibility="gone" android:clickable="true" android:layout_width="32.0sp" android:layout_height="fill_parent" android:src="@drawable/alarm" android:scaleType="fitCenter" />
+</LinearLayout>

@@ -1,0 +1,90 @@
+.marker-cluster-small {
+	background-color: rgba(181, 226, 140, 0.6);
+	}
+.marker-cluster-small div {
+	background-color: rgba(110, 204, 57, 0.6);
+	}
+
+.marker-cluster-medium {
+	background-color: rgba(241, 211, 87, 0.6);
+	}
+.marker-cluster-medium div {
+	background-color: rgba(240, 194, 12, 0.6);
+	}
+
+.marker-cluster-large {
+	background-color: rgba(253, 156, 115, 0.6);
+	}
+.marker-cluster-large div {
+	background-color: rgba(241, 128, 23, 0.6);
+	}
+
+	/* IE 6-8 fallback colors */
+.leaflet-oldie .marker-cluster-small {
+	background-color: rgb(181, 226, 140);
+	}
+.leaflet-oldie .marker-cluster-small div {
+	background-color: rgb(110, 204, 57);
+	}
+
+.leaflet-oldie .marker-cluster-medium {
+	background-color: rgb(241, 211, 87);
+	}
+.leaflet-oldie .marker-cluster-medium div {
+	background-color: rgb(240, 194, 12);
+	}
+
+.leaflet-oldie .marker-cluster-large {
+	background-color: rgb(253, 156, 115);
+	}
+.leaflet-oldie .marker-cluster-large div {
+	background-color: rgb(241, 128, 23);
+}
+
+.marker-cluster {
+	background-clip: padding-box;
+	border-radius: 20px;
+	width: 60px;
+    height: 60px;
+}
+
+.marker-cluster div {
+	width: 60px;
+	height: 60px;
+	margin-left: -10px;
+	margin-top: -10px;
+
+	text-align: center;
+	border-radius: 30px;
+	font: 16px sans-serif;
+}
+
+.marker-cluster span {
+	line-height: 60px;
+}
+
+[role=button], .leaflet-control-custom {
+    width: auto !important;
+    height: auto !important;
+    padding: 0.5em 0.7em;
+}
+
+.track-button {
+    bottom: 2.0em;
+    padding: 0.5em;
+    width: auto !important;
+    height: auto !important;
+    background: url(images/locate.png) center no-repeat;
+    background-size: 70% 70%;
+    background-color: white;
+    font: bold 18px 'Lucida Console', Monaco, monospace;
+    text-indent: 1px;
+}
+
+.track-button a {
+    background: transparent !important;
+}
+
+.pushed {
+  background-color: #94b200;
+}

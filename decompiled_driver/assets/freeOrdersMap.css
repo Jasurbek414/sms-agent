@@ -1,0 +1,8 @@
+
+.leaflet-marker-pane > :not(.skat-marker) {
+  -webkit-transition: transform 1s linear;
+  -moz-transition: transform 1s linear;
+  -o-transition: transform 1s linear;
+  -ms-transition: transform 1s linear;
+  transition: transform 1s linear;
+}

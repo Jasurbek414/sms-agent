@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:key="preferenceScreen"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory android:key="connection_cat" app:iconSpaceReserved="false" app:title="@string/connection">
+        <EditTextPreference app:allowDividerBelow="true" app:iconSpaceReserved="false" app:key="mainServer" app:title="@string/settings_mainserver" app:useSimpleSummaryProvider="true" />
+        <EditTextPreference app:allowDividerAbove="true" app:allowDividerBelow="true" app:defaultValue="1050" app:iconSpaceReserved="false" app:key="mainPort" app:title="@string/settings_port" app:useSimpleSummaryProvider="true" />
+        <EditTextPreference app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" app:key="login" app:title="@string/settings_login" app:useSimpleSummaryProvider="true" />
+        <EditTextPreference android:inputType="textPassword" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" app:key="password" app:title="@string/settings_password" />
+        <CheckBoxPreference android:title="@string/settings_asklogin" android:key="asklogin" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+    <PreferenceCategory android:key="connection2_cat" app:dependency="mainServer" app:iconSpaceReserved="false" app:title="@string/settings_reservserver">
+        <EditTextPreference app:allowDividerBelow="true" app:iconSpaceReserved="false" app:key="reservServer" app:title="@string/settings_reservserver" app:useSimpleSummaryProvider="true" />
+        <EditTextPreference app:allowDividerAbove="true" app:allowDividerBelow="true" app:defaultValue="1050" app:dependency="reservServer" app:iconSpaceReserved="false" app:key="reservPort" app:title="@string/settings_port" app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/interface_look" android:key="interface_cat" app:iconSpaceReserved="false">
+        <ListPreference android:entries="@array/listLocales" android:title="@string/locale" android:key="locale" android:defaultValue="system" android:entryValues="@array/locales" app:allowDividerBelow="true" app:iconSpaceReserved="false" app:useSimpleSummaryProvider="true" />
+        <ListPreference android:entries="@array/listOrientation" android:title="@string/settings_orientation" android:key="screen_orientation" android:defaultValue="auto" android:entryValues="@array/valsOrientation" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" app:useSimpleSummaryProvider="true" />
+        <ListPreference android:entries="@array/regionSizes" android:title="@string/district_size" android:key="regionSize" android:defaultValue="normal" android:entryValues="@array/regionSizesValues" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" app:useSimpleSummaryProvider="true" />
+        <ListPreference android:entries="@array/foTextSizes" android:title="@string/free_order_size" android:key="foTextSize" android:defaultValue="normal" android:entryValues="@array/foTextSizesValues" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" app:useSimpleSummaryProvider="true" />
+        <ListPreference android:entries="@array/listTheme" android:title="@string/appearance" android:key="theme" android:defaultValue="dark" android:entryValues="@array/themeValues" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" app:useSimpleSummaryProvider="true" />
+        <CheckBoxPreference android:title="@string/cfrmNotStartedTaximeter" android:key="cfrmNotStartedTaximeter" android:summary="@string/cfrmNotStartedTaximeterSummary" android:defaultValue="true" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" />
+        <CheckBoxPreference android:title="@string/cfrmStartStop" android:key="cfrmStartStop" android:summary="@string/cfrmStartStopSummary" android:defaultValue="true" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" />
+        <CheckBoxPreference android:title="@string/cfrmReject" android:key="cfrmReject" android:summary="@string/cfrmRejectSummary" android:defaultValue="true" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" />
+        <CheckBoxPreference android:title="@string/cfrmTime" android:key="cfrmTime" android:summary="@string/cfrmTimeSummary" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" />
+        <CheckBoxPreference android:title="@string/cfrmOnplace" android:key="cfrmOnplace" android:summary="@string/cfrmOnplaceSummary" android:defaultValue="true" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" />
+        <ListPreference android:entries="@array/NavSystemList" android:title="@string/navigation_system" android:key="navsystem" android:defaultValue="organicmaps" android:entryValues="@array/NavSystemValues" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/sounds" app:iconSpaceReserved="false">
+        <Preference android:title="@string/order_sounds" android:key="orderSound" app:allowDividerBelow="true" app:iconSpaceReserved="false" app:useSimpleSummaryProvider="true" />
+        <Preference android:title="@string/free_order_sound" android:key="foSound" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" app:useSimpleSummaryProvider="true" />
+        <Preference android:title="@string/pre_booking_sound" android:key="roSound" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" app:useSimpleSummaryProvider="true" />
+        <Preference android:title="@string/next_order_sound" android:key="sound:order:next" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" app:useSimpleSummaryProvider="true" />
+        <Preference android:title="@string/new_pre_booking_sound" android:key="newRoSound" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" app:useSimpleSummaryProvider="true" />
+        <Preference android:title="@string/booking_confirmed_sound" android:key="sound:order:confirmed" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" app:useSimpleSummaryProvider="true" />
+        <Preference android:title="@string/booking_change_sound" android:key="sound:order:changed" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" app:useSimpleSummaryProvider="true" />
+        <Preference android:title="@string/booking_cancel_sound" android:key="sound:order:canceled" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" app:useSimpleSummaryProvider="true" />
+        <Preference android:title="@string/taximeter_paused_sound" android:key="sound:taximeter:paused" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" app:useSimpleSummaryProvider="true" />
+        <Preference android:title="@string/alert_sound" android:key="sound:alert" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" app:useSimpleSummaryProvider="true" />
+        <Preference android:title="@string/start_taximeter_ask_sound" android:key="sound:taximeter:start_ask" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" app:useSimpleSummaryProvider="true" />
+        <Preference android:title="@string/disconnected_sound" android:key="disconnectSound" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/other" app:iconSpaceReserved="false">
+        <CheckBoxPreference android:title="@string/enable_printing" android:key="enable_printing" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" />
+        <CheckBoxPreference android:title="@string/show_order_map_by_default" android:key="showOrderMapByDefault" android:summary="@string/show_order_map_by_default_summary" android:defaultValue="false" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" />
+        <CheckBoxPreference android:title="@string/do_not_lock_screen" android:key="keepKeyguardOff" android:summary="@string/do_not_lock_screen_summary" android:defaultValue="true" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" />
+        <CheckBoxPreference android:title="@string/speech_incoming_order" android:key="speechIncomingOrder" android:summary="@string/speech_incoming_order_summary" android:defaultValue="true" app:allowDividerAbove="true" app:allowDividerBelow="true" app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+</PreferenceScreen>

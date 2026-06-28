@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="NavSystemList">
+        <item>Waze</item>
+        <item>OrganicMaps</item>
+        <item>2GIS</item>
+        <item>Yandex Navigator</item>
+        <item>Google Maps</item>
+        <item>Cityguide</item>
+        <item>GeoNET</item>
+        <item>bGEO</item>
+        <item>AzNav</item>
+        <item>Navitel</item>
+    </string-array>
+    <string-array name="NavSystemValues">
+        <item>waze</item>
+        <item>organicmaps</item>
+        <item>2gis</item>
+        <item>yandex</item>
+        <item>google</item>
+        <item>cityguide</item>
+        <item>geonet</item>
+        <item>bgeo</item>
+        <item>aznav</item>
+        <item>navitel</item>
+    </string-array>
+    <string-array name="foTextSizes">
+        <item>Micro</item>
+        <item>Small</item>
+        <item>Normal</item>
+        <item>Big</item>
+        <item>Very big</item>
+    </string-array>
+    <string-array name="foTextSizesValues">
+        <item>micro</item>
+        <item>small</item>
+        <item>normal</item>
+        <item>big</item>
+        <item>large</item>
+    </string-array>
+    <string-array name="listLocales">
+        <item>System</item>
+        <item>Русский</item>
+        <item>English</item>
+        <item>Deutsch</item>
+        <item>Azərbaycan</item>
+        <item>فارسی</item>
+        <item>հայերեն</item>
+        <item>Česky</item>
+        <item>ქართული</item>
+        <item>Hindi</item>
+        <item>Українська</item>
+        <item>Italiano</item>
+        <item>Latviešu</item>
+        <item>Svenska</item>
+        <item>Türkçe</item>
+        <item>Қарақалпақ</item>
+        <item>Оʻzbek</item>
+        <item>Español</item>
+        <item>Dansk</item>
+        <item>Français</item>
+        <item>Қазақша</item>
+        <item>Shqipe</item>
+        <item>Беларуская</item>
+        <item>Lietuvių</item>
+        <item>Polski</item>
+    </string-array>
+    <string-array name="listOrientation">
+        <item>Auto</item>
+        <item>Portrait</item>
+        <item>Album</item>
+    </string-array>
+    <string-array name="listTheme">
+        <item>Dark</item>
+        <item>Contrast</item>
+        <item>Light</item>
+    </string-array>
+    <string-array name="locales">
+        <item>system</item>
+        <item>ru</item>
+        <item>en</item>
+        <item>de</item>
+        <item>az</item>
+        <item>fa</item>
+        <item>hy</item>
+        <item>cs</item>
+        <item>ka</item>
+        <item>hi</item>
+        <item>uk</item>
+        <item>it</item>
+        <item>lv</item>
+        <item>sv</item>
+        <item>tr</item>
+        <item>kaa</item>
+        <item>uz</item>
+        <item>es</item>
+        <item>da</item>
+        <item>fr</item>
+        <item>kk</item>
+        <item>sq</item>
+        <item>be</item>
+        <item>lt</item>
+        <item>pl</item>
+    </string-array>
+    <string-array name="regionSizes">
+        <item>Micro</item>
+        <item>Small</item>
+        <item>Normal</item>
+        <item>Big</item>
+        <item>Very big</item>
+    </string-array>
+    <string-array name="regionSizesValues">
+        <item>micro</item>
+        <item>small</item>
+        <item>normal</item>
+        <item>big</item>
+        <item>large</item>
+    </string-array>
+    <string-array name="showActiveOrderActions">
+        <item>active order</item>
+        <item>current order</item>
+        <item>order</item>
+    </string-array>
+    <string-array name="themeValues">
+        <item>dark</item>
+        <item>contrast</item>
+        <item>light</item>
+    </string-array>
+    <string-array name="valsOrientation">
+        <item>auto</item>
+        <item>port</item>
+        <item>alb</item>
+    </string-array>
+</resources>

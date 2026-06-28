@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" style="?mainLayoutStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/font_base_large" android:gravity="center" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/exit" style="?topPanelStyle" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <TextView android:textSize="@dimen/font_increased" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/exit_dialog_text" style="?textStyle" />
+        <TextView android:textSize="@dimen/font_increased" android:id="@id/busyHint" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/exit_dialog_hint" style="?textStyle" />
+        <CheckBox android:enabled="false" android:textSize="@dimen/font_base" android:textColor="?baseFontColor" android:id="@id/noAskAnymoreCheckBox" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:text="@string/exit_no_dialog" android:buttonTint="?baseFontColor" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:padding="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:gravity="center" android:id="@id/cancelButton" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/cancel" android:layout_weight="1.0" android:layout_marginEnd="5.0dip" style="?buttonStyle" />
+        <Button android:enabled="false" android:gravity="center" android:id="@id/exitButton" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/exit" android:layout_weight="1.0" style="?buttonPrimaryStyle" />
+    </LinearLayout>
+</LinearLayout>

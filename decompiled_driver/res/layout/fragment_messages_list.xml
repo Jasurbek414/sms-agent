@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="?backColor" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/empty" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/messagesList" android:visibility="gone" android:layoutAnimation="@anim/layout_animation" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</LinearLayout>

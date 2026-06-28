@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item app:state_registered="true">
+        <shape>
+            <solid android:color="?accentedButtonBackground" />
+            <stroke android:width="2.0dip" android:color="?accentedButtonBackground" />
+            <corners android:radius="0.5dip" />
+            <padding android:left="10.0dip" android:top="10.0dip" android:right="10.0dip" android:bottom="10.0dip" />
+        </shape>
+    </item>
+    <item app:state_hasfree="true">
+        <shape>
+            <solid android:color="?primaryButtonBackground" />
+            <stroke android:width="2.0dip" android:color="?primaryButtonBackground" />
+            <corners android:radius="0.5dip" />
+            <padding android:left="10.0dip" android:top="10.0dip" android:right="10.0dip" android:bottom="10.0dip" />
+        </shape>
+    </item>
+    <item app:state_hasneworders="true">
+        <shape>
+            <solid android:color="@color/regionflash" />
+            <stroke android:width="2.0dip" android:color="@color/regionflash" />
+            <corners android:radius="0.5dip" />
+            <padding android:left="10.0dip" android:top="10.0dip" android:right="10.0dip" android:bottom="10.0dip" />
+        </shape>
+    </item>
+    <item app:state_active="true">
+        <shape>
+            <solid android:color="?accentedButtonBackground" />
+            <stroke android:width="2.0dip" android:color="?accentedButtonBackground" />
+            <corners android:radius="1.0dip" />
+            <padding android:left="10.0dip" android:top="10.0dip" android:right="10.0dip" android:bottom="10.0dip" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="?defaultButtonBackground" />
+            <stroke android:width="1.0dip" android:color="?defaultButtonBackground" />
+            <corners android:radius="1.0dip" />
+            <padding android:left="10.0dip" android:top="10.0dip" android:right="10.0dip" android:bottom="10.0dip" />
+        </shape>
+    </item>
+</selector>

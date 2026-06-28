@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" style="?mainLayoutStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBox android:textColor="?baseFontColor" android:id="@id/autoregCheckbox" android:paddingTop="5.0dip" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="@string/auto_reg" android:buttonTint="?baseFontColor" />
+    <GridView android:gravity="center" android:id="@id/regionsGrid" android:padding="5.0dip" android:layout_width="fill_parent" android:layout_height="0.0dip" android:horizontalSpacing="5.0dip" android:verticalSpacing="5.0dip" android:stretchMode="columnWidth" android:columnWidth="110.0dip" android:numColumns="auto_fit" android:layout_weight="1.0" />
+    <Button android:gravity="center" android:id="@id/profileSelectButton" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="0.0dip" android:layout_marginBottom="5.0dip" android:text="@string/profile" android:layout_marginStart="5.0dip" android:layout_marginEnd="5.0dip" style="?buttonStyle" />
+</LinearLayout>

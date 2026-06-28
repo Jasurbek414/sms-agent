@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/bottomPanelLayout" android:paddingTop="1.0dip" android:paddingBottom="1.0dip" android:layout_width="fill_parent" android:layout_height="34.0sp" android:baselineAligned="false" style="?topPanelStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/nextOrderLayout" android:visibility="invisible" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <su.skat.client.ui.widgets.icons.Icon android:gravity="center" android:padding="5.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="5.0dip" android:layout_marginRight="5.0dip" android:text="@string/icon_fa_forward" style="?textStyle" />
+        <TextView android:ellipsize="start" android:gravity="center_vertical" android:id="@id/nextOrderAddressText" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/no_queued_orders" android:singleLine="true" style="?textStyle" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="end" android:orientation="horizontal" android:id="@id/openAssignedOrders" android:layout_width="wrap_content" android:layout_height="fill_parent">
+        <su.skat.client.ui.widgets.icons.Icon android:enabled="false" android:textColor="@drawable/icon_states" android:gravity="center" android:id="@id/activeOrdersCountIcon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/icon_fa_clone" android:layout_marginStart="5.0dip" android:layout_marginEnd="5.0dip" style="?textStyle" />
+        <TextView android:enabled="false" android:gravity="center_vertical" android:id="@id/activeOrdersCountText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/init_zero" style="?textStyle" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="end" android:orientation="horizontal" android:id="@id/openAssignedPreOrders" android:layout_width="wrap_content" android:layout_height="fill_parent">
+        <Space android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginRight="5.0dip" android:layout_weight="1.0" />
+        <su.skat.client.ui.widgets.icons.Icon android:enabled="false" android:textColor="@drawable/icon_states" android:gravity="center" android:id="@id/queuedPreOrdersCountIcon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/icon_fa_calendar_plus_o" style="?textStyle" />
+        <TextView android:enabled="false" android:gravity="center_vertical" android:id="@id/queuedPreOrdersCountText" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/init_zero" android:layout_marginStart="5.0dip" android:layout_marginEnd="5.0dip" style="?textStyle" />
+    </LinearLayout>
+</LinearLayout>

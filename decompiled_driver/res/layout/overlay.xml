@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:theme="@style/SkatTheme.Default" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <View android:layout_width="24.0dip" android:layout_height="0.0dip" />
+        <LinearLayout android:orientation="horizontal" android:paddingTop="5.0dip" android:paddingBottom="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="29.0dip" android:paddingEnd="5.0dip" android:layout_marginEnd="5.0dip" style="?topPanelStyle">
+            <TextView android:textSize="@dimen/font_increased" android:gravity="center_vertical" android:id="@id/priceText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/init_zero" android:layout_marginStart="5.0dip" android:layout_marginEnd="5.0dip" style="?textStyle" />
+            <TextView android:textSize="?smallFontSize" android:gravity="center_vertical" android:id="@id/currencyText" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="₽" style="?textStyle" />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView android:layout_width="48.0dip" android:layout_height="wrap_content" android:src="@mipmap/ic_launcher" android:adjustViewBounds="true" android:contentDescription="@string/logo" />
+</FrameLayout>

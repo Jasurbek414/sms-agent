@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" style="?mainLayoutStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/font_base_large" android:gravity="center" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/check" style="?topPanelStyle" />
+    <ScrollView android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:id="@id/countersLayout" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            <LinearLayout android:orientation="vertical" android:paddingTop="5.0dip" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout android:orientation="horizontal" android:id="@id/waitingPriceLayout" android:paddingTop="0.0dip" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="10.0dip" android:paddingEnd="10.0dip">
+                    <TextView android:textSize="@dimen/font_base" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/wait_time" android:layout_weight="2.0" style="?textStyle" />
+                    <TextView android:textSize="@dimen/font_base" android:gravity="center" android:id="@id/waitingTime" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="00:20:02" android:layout_weight="1.0" style="?textStyle" />
+                    <TextView android:textSize="@dimen/font_base" android:gravity="end" android:id="@id/waitingPrice" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="50 евро" android:layout_weight="1.0" style="?textStyle" />
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@id/seatPriceLayout" android:paddingTop="0.0dip" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="10.0dip" android:paddingEnd="10.0dip">
+                    <TextView android:textSize="@dimen/font_base" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/get_in_car" android:layout_weight="1.0" style="?textStyle" />
+                    <TextView android:textSize="@dimen/font_base" android:gravity="center" android:id="@id/seatPrice" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="50 евро" style="?textStyle" />
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@id/markupLayout" android:paddingTop="0.0dip" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="10.0dip" android:paddingEnd="10.0dip">
+                    <TextView android:textSize="@dimen/font_base" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/markup" android:layout_weight="1.0" style="?textStyle" />
+                    <TextView android:textSize="@dimen/font_base" android:gravity="center" android:id="@id/markup" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="50 евро" style="?textStyle" />
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@id/minimumPriceLayout" android:paddingTop="0.0dip" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="10.0dip" android:paddingEnd="10.0dip">
+                    <TextView android:textSize="@dimen/font_base" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/minimal_cost" android:layout_weight="1.0" style="?textStyle" />
+                    <TextView android:textSize="@dimen/font_base" android:gravity="center" android:id="@id/minimumPrice" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="40 евро" style="?textStyle" />
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@id/roundPriceLayout" android:paddingTop="0.0dip" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="10.0dip" android:paddingEnd="10.0dip">
+                    <TextView android:textSize="@dimen/font_base" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/around_to" android:layout_weight="1.0" style="?textStyle" />
+                    <TextView android:textSize="@dimen/font_base" android:gravity="center" android:id="@id/roundPrice" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="1 евро" style="?textStyle" />
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:id="@id/discountLayout" android:paddingTop="0.0dip" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="10.0dip" android:paddingEnd="10.0dip">
+                    <TextView android:textSize="@dimen/font_base" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/discount" android:layout_weight="1.0" style="?textStyle" />
+                    <TextView android:textSize="@dimen/font_base" android:gravity="center" android:id="@id/discount" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="1 евро" style="?textStyle" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="@dimen/font_increased" android:padding="10.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/total" android:layout_weight="1.0" style="?accentedTextStyle" />
+                <TextView android:textSize="@dimen/font_increased" android:gravity="center" android:id="@id/totalPrice" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="80 евро" style="?accentedTextStyle" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:orientation="horizontal" android:padding="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:gravity="center" android:id="@id/okButton" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/ok" android:layout_weight="1.0" style="?buttonPrimaryStyle" />
+    </LinearLayout>
+</LinearLayout>

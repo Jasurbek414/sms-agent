@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout android:orientation="horizontal" android:id="@id/refreshLayout" android:padding="5.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <su.skat.client.ui.widgets.LoadingListView android:id="@id/list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:divider="@drawable/divider" android:dividerHeight="1.5dip" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <include layout="@layout/empty_list" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/inProcessLayout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" style="?topPanelStyle">
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ProgressBar android:layout_width="wrap_content" android:layout_height="fill_parent" android:indeterminate="true" style="?android:progressBarStyle" />
+            <TextView android:gravity="center" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/print" style="?textStyle" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

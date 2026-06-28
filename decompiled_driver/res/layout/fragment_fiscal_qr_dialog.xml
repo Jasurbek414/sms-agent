@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?mainLayoutStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/qrImageView" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@android:drawable/progress_indeterminate_horizontal" />
+    <Button android:gravity="center" android:id="@id/printButton" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:text="@string/print" style="?buttonStyle" />
+</LinearLayout>

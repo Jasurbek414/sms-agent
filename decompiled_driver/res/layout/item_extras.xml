@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:paddingTop="10.0dip" android:paddingBottom="10.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingStart="5.0dip" android:paddingEnd="5.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="end|center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <su.skat.client.ui.widgets.icons.Icon android:gravity="center" android:id="@id/icon" android:layout_width="32.0sp" android:layout_height="wrap_content" android:text="@string/icon_fa_fire" style="?increasedTextStyle" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:baselineAligned="false" android:layout_weight="1.0">
+            <TextView android:id="@id/name" android:padding="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Kuritsa po olbanske" style="?accentedTextStyle" />
+            <TextView android:textColor="?noteFontColor" android:id="@id/price" android:padding="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="200.00" style="?textStyle" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <su.skat.client.ui.widgets.icons.IconButton android:textSize="@dimen/large_icon_size" android:id="@id/countDecreaseButton" android:layout_width="@dimen/font_taxometer" android:layout_height="wrap_content" android:text="@string/icon_fa_minus" style="?buttonStyle" />
+            <TextView android:layout_gravity="center" android:id="@id/countTextView" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/init_zero" style="?textStyle" />
+            <su.skat.client.ui.widgets.icons.IconButton android:textSize="@dimen/large_icon_size" android:id="@id/countIncreaseButton" android:layout_width="@dimen/font_taxometer" android:layout_height="wrap_content" android:layout_margin="0.0dip" android:text="@string/icon_fa_plus" style="?buttonStyle" />
+        </LinearLayout>
+        <ToggleButton android:id="@id/stateButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textOn="@string/on" android:textOff="@string/off" style="?buttonStyle" />
+    </LinearLayout>
+</LinearLayout>

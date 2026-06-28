@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation android:id="@id/main" app:startDestination="@id/mainMenuFragment"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <fragment android:label="MainMenuFragment" android:name="su.skat.client.foreground.authorized.MainMenuFragment" android:id="@id/mainMenuFragment">
+        <action android:id="@id/action_mainMenuFragment_to_articlesListFragment" app:destination="@id/articlesListFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim" />
+        <action android:id="@id/action_mainMenuFragment_to_advancedMenuFragment" app:destination="@id/advancedMenuFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim" />
+        <action android:id="@id/action_mainMenuFragment_to_cabinetFragment" app:destination="@id/cabinetFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim" />
+        <action android:id="@id/action_mainMenuFragment_to_preferencesFragment" app:destination="@id/preferencesFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim" />
+        <action android:id="@id/action_mainMenuFragment_to_globalChatChannelFragment" app:destination="@id/globalChatChannelFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim" />
+        <action android:id="@id/action_mainMenuFragment_to_preOrdersFragment" app:destination="@id/preOrdersFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim" />
+        <action android:id="@id/action_mainMenuFragment_to_assignedOrdersFragment" app:destination="@id/assignedOrdersFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim" />
+        <action android:id="@id/action_mainMenuFragment_to_districtsFragment" app:destination="@id/districtsFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim" />
+        <deepLink android:id="@id/homeDeepLink" app:action="ACTION_VIEW" app:uri="su.skat.client://home" />
+    </fragment>
+    <fragment android:label="ArticlesListFragment" android:name="su.skat.client.foreground.authorized.mainMenu.articles.ArticlesListFragment" android:id="@id/articlesListFragment">
+        <action android:id="@id/action_articlesListFragment_to_articleFragment" app:destination="@id/articleFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim" />
+    </fragment>
+    <fragment android:label="ArticleFragment" android:name="su.skat.client.foreground.authorized.mainMenu.articles.ArticleFragment" android:id="@id/articleFragment">
+        <argument android:name="articleId" app:argType="integer" />
+    </fragment>
+    <fragment android:label="AdvancedMenuFragment" android:name="su.skat.client.foreground.authorized.AdvancedMenuFragment" android:id="@id/advancedMenuFragment">
+        <action android:id="@id/action_advancedMenuFragment_to_paymentFragment" app:destination="@id/paymentFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim" />
+        <action android:id="@id/action_advancedMenuFragment_to_promisedPaymentFragment" app:destination="@id/promisedPaymentFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim" />
+        <action android:id="@id/action_advancedMenuFragment_to_gpsStatusFragment" app:destination="@id/gpsStatusFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim" />
+        <action android:id="@id/action_advancedMenuFragment_to_photoReportFragment" app:destination="@id/photoReportFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim" />
+    </fragment>
+    <fragment android:label="CabinetFragment" android:name="su.skat.client.foreground.authorized.mainMenu.CabinetFragment" android:id="@id/cabinetFragment" />
+    <fragment android:label="PaymentFragment" android:name="su.skat.client.foreground.authorized.mainMenuAdvanced.PaymentFragment" android:id="@id/paymentFragment" />
+    <fragment android:label="PromisedPaymentFragment" android:name="su.skat.client.foreground.authorized.mainMenuAdvanced.PromisedPaymentFragment" android:id="@id/promisedPaymentFragment" />
+    <fragment android:label="GpsStatusFragment" android:name="su.skat.client.foreground.authorized.mainMenuAdvanced.gps.GpsStatusFragment" android:id="@id/gpsStatusFragment" />
+    <fragment android:label="PreferencesFragment" android:name="su.skat.client.foreground.authorized.mainMenu.preferences.PreferencesFragment" android:id="@id/preferencesFragment" />
+    <fragment android:label="GlobalChatChannelFragment" android:name="su.skat.client.foreground.authorized.mainMenu.messages.GlobalChatChannelFragment" android:id="@id/globalChatChannelFragment">
+        <action android:id="@id/action_messagesFragment_to_writeMessageFragment" app:destination="@id/writeMessageFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim" />
+    </fragment>
+    <fragment android:label="WriteMessageFragment" android:name="su.skat.client.foreground.authorized.mainMenu.messages.GlobalChatWriteFragment" android:id="@id/writeMessageFragment" />
+    <fragment android:label="PreOrdersFragment" android:name="su.skat.client.foreground.authorized.mainMenu.PreOrdersFragment" android:id="@id/preOrdersFragment">
+        <action android:id="@id/action_preOrdersFragment_to_assignedOrdersFragment" app:destination="@id/assignedOrdersFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim" />
+    </fragment>
+    <fragment android:label="AssignedOrdersFragment" android:name="su.skat.client.foreground.authorized.assignedOrders.AssignedOrdersFragment" android:id="@id/assignedOrdersFragment">
+        <argument android:name="page" android:defaultValue="0" app:argType="integer" />
+        <action android:id="@id/action_assignedOrdersFragment_to_orderFragment" app:destination="@id/orderFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim" />
+        <deepLink android:id="@id/ordersDeepLink" app:action="ACTION_VIEW" app:uri="su.skat.client://orders" />
+    </fragment>
+    <fragment android:label="DistrictsFragment" android:name="su.skat.client.foreground.authorized.mainMenu.districts.DistrictsFragment" android:id="@id/districtsFragment">
+        <action android:id="@id/action_districtsFragment_to_districtCarsFragment" app:destination="@id/districtCarsFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim" />
+        <action android:id="@id/action_districtsFragment_to_freeOrdersFragment" app:destination="@id/freeOrdersFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim" />
+        <action android:id="@id/action_districtsFragment_to_orderAskFragment" app:destination="@id/orderAskFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim" />
+    </fragment>
+    <fragment android:label="DistrictCarsFragment" android:name="su.skat.client.foreground.authorized.mainMenu.districts.DistrictCarsFragment" android:id="@id/districtCarsFragment">
+        <argument android:name="regionId" app:argType="integer" />
+    </fragment>
+    <fragment android:label="AcceptOrderActionFragment" android:name="su.skat.client.foreground.authorized.orders.actions.AcceptOrderActionFragment" android:id="@id/acceptOrderActionFragment">
+        <argument android:name="time" app:argType="string" />
+        <deepLink android:id="@id/acceptOrderActionFragmentDeepLink" app:action="ACTION_VIEW" app:uri="su.skat.client://order/accept?time={time}" />
+    </fragment>
+    <fragment android:label="RejectOrderActionFragment" android:name="su.skat.client.foreground.authorized.orders.actions.RejectOrderActionFragment" android:id="@id/rejectOrderActionFragment">
+        <deepLink android:id="@id/rejectOrderActionFragmentDeepLink" app:action="ACTION_VIEW" app:uri="su.skat.client://order/reject" />
+    </fragment>
+    <fragment android:label="ShowActiveOrderActionFragment" android:name="su.skat.client.foreground.authorized.orders.actions.ShowActiveOrderActionFragment" android:id="@id/showActiveOrderActionFragment">
+        <deepLink android:id="@id/showActiveOrderActionFragmentDeepLink" app:action="ACTION_VIEW" app:uri="su.skat.client://order/show/active" />
+    </fragment>
+    <fragment android:label="OrderAskFragment" android:name="su.skat.client.foreground.authorized.orders.OrderAskFragment" android:id="@id/orderAskFragment">
+        <argument android:name="mode" app:argType="integer" />
+        <argument android:name="order" app:argType="su.skat.client.model.Order" />
+    </fragment>
+    <fragment android:label="FreeOrdersFragment" android:name="su.skat.client.foreground.authorized.mainMenu.districts.freeOrders.FreeOrdersFragment" android:id="@id/freeOrdersFragment">
+        <argument android:name="regionId" app:argType="integer" />
+        <action android:id="@id/action_freeOrdersFragment_to_orderFragment" app:destination="@id/orderFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim" />
+    </fragment>
+    <fragment android:label="OrderFragment" android:name="su.skat.client.foreground.authorized.orders.OrderFragment" android:id="@id/orderFragment">
+        <argument android:name="orderId" app:argType="integer" />
+        <action android:id="@id/action_orderFragment_to_districtsFragment" app:destination="@id/districtsFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:launchSingleTop="true" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim" app:popUpTo="@id/mainMenuFragment" app:popUpToInclusive="true" />
+        <action android:id="@id/action_orderFragment_to_orderChatChannelFragment" app:destination="@id/orderChatChannelFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim" />
+        <action android:id="@id/action_orderFragment_to_printOrderFragment" app:destination="@id/printOrderFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim">
+            <argument android:name="orderId" app:argType="integer" />
+        </action>
+        <deepLink android:id="@id/orderViewDeepLink" app:action="ACTION_VIEW" app:uri="su.skat.client://order/{orderId}/start" />
+    </fragment>
+    <fragment android:label="PhotoReportFragment" android:name="su.skat.client.foreground.authorized.mainMenuAdvanced.photo_report.PhotoReportFragment" android:id="@id/photoReportFragment" />
+    <fragment android:label="OrderChatChannelFragment" android:name="su.skat.client.foreground.authorized.orders.chat.OrderChatChannelFragment" android:id="@id/orderChatChannelFragment">
+        <argument android:name="orderId" app:argType="integer" />
+    </fragment>
+    <fragment android:label="PrintOrderFragment" android:name="su.skat.client.foreground.authorized.escpos.PrintOrderFragment" android:id="@id/printOrderFragment">
+        <argument android:name="orderId" app:argType="integer" />
+        <action android:id="@id/action_printOrderFragment_to_orderFragment" app:destination="@id/orderFragment" app:enterAnim="@anim/default_enter_anim" app:exitAnim="@anim/default_exit_anim" app:launchSingleTop="true" app:popEnterAnim="@anim/default_pop_enter_anim" app:popExitAnim="@anim/default_pop_exit_anim" app:popUpTo="@id/mainMenuFragment" app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

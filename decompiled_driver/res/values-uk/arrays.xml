@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="foTextSizes">
+        <item>Дуже дрібний</item>
+        <item>Дрібний</item>
+        <item>Звичайний</item>
+        <item>Великий</item>
+        <item>Дуже великий</item>
+    </string-array>
+    <string-array name="listOrientation">
+        <item>Авто</item>
+        <item>Книжкова</item>
+        <item>Альбомна</item>
+    </string-array>
+    <string-array name="listTheme">
+        <item>Темне</item>
+        <item>Контрастне</item>
+        <item>Світле</item>
+    </string-array>
+    <string-array name="regionSizes">
+        <item>Дуже дрібні</item>
+        <item>Дрібні</item>
+        <item>Звичайні</item>
+        <item>Великі</item>
+        <item>Дуже великі</item>
+    </string-array>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout android:id="@id/window" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" style="?mainLayoutStyle">
+        <FrameLayout android:id="@id/topStatusPanel" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <FrameLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <androidx.fragment.app.FragmentContainerView android:name="androidx.navigation.fragment.NavHostFragment" android:id="@id/nav_host_fragment" android:layout_width="fill_parent" android:layout_height="fill_parent" app:defaultNavHost="true" app:navGraph="@navigation/main" />
+            <FrameLayout android:id="@id/inAppNotifications" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/gpsDisabled" android:padding="5.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" style="?mainLayoutStyle">
+                <TextView android:gravity="center" android:layout_width="wrap_content" android:layout_height="0.0dip" android:text="@string/enable_gps_confirm" android:layout_weight="1.0" style="?accentedTextStyle" />
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <Button android:gravity="center" android:id="@id/exitButton" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/exit" android:layout_weight="1.0" android:layout_marginEnd="2.5dip" style="?buttonStyle" />
+                    <Button android:gravity="center" android:id="@id/gpsEnableButton" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/ok" android:layout_weight="1.0" android:layout_marginStart="2.5dip" style="?buttonPrimaryStyle" />
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+        <FrameLayout android:id="@id/activeOrders" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <FrameLayout android:id="@id/bottomStatusPanel" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <com.google.android.material.navigation.NavigationView android:layout_gravity="start" android:id="@id/navigationView" android:fitsSystemWindows="true" android:layout_width="wrap_content" android:layout_height="fill_parent">
+        <include layout="@layout/drawer" />
+    </com.google.android.material.navigation.NavigationView>
+</androidx.drawerlayout.widget.DrawerLayout>

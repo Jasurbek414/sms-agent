@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/widget44" android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_x="100.0dip" android:layout_y="80.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:orientation="vertical" android:background="@null" android:layout_width="64.0dip" android:layout_height="64.0dip">
+        <ImageView android:id="@id/mainMenuGridItemImage" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <TextView android:textSize="@dimen/font_base" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="end" android:id="@id/mainMenuGridItemCountText" android:background="@drawable/shapecount" android:padding="3.0dip" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="0.0dip" android:text="" android:layout_alignParentTop="true" android:paddingStart="5.0dip" android:paddingEnd="5.0dip" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    <TextView android:gravity="center" android:id="@id/mainMenuGridItemTitleText" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?textStyle" />
+</LinearLayout>

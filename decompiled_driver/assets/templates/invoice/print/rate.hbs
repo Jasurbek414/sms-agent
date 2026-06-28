@@ -1,0 +1,10 @@
+[C]================================
+{{#neq seatPrice "0.00"}}[L]{{ __ "get_in_car" }}:[R]{{ seatPrice }}{{ $ }}{{/neq}}
+{{#neq waitingPrice "0.00"}}[L]{{ __ "waiting_cost" }}:[C]{{ waitingTime }}[R]{{ waitingPrice }}{{ $ }}{{/neq}}
+{{#neq minFare "0.00"}}[L]{{ __ "minimal_cost" }}:[R]{{ minFare }}{{ $ }}{{/neq}}
+{{#neq markup "0.00"}}[L]{{ __ "markup" }}:[R]{{ markup }}{{ $ }}{{/neq}}
+{{#neq discount "0.00"}}[L]{{ __ "discount" }}:x[R]{{ discount }}{{ $ }}{{/neq}}
+{{#neq roundTo 0}}[L]{{ __ "around_to" }}:[R]{{ roundTo }}{{ $ }}{{/neq}}
+[C]================================
+[L]<b>{{ __ "total" }}:</b>[R]{{ fare }}{{ $ }}
+[C]{{ __ "thanks" }}

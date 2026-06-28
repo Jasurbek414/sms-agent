@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="foTextSizes">
+        <item>میلیونیم</item>
+        <item>کوچک</item>
+        <item>طبیعی</item>
+        <item>بزرگ</item>
+        <item>خیلی بزرگ</item>
+    </string-array>
+    <string-array name="listOrientation">
+        <item>بطور خودکار</item>
+        <item>پرتره</item>
+        <item>البوم</item>
+    </string-array>
+    <string-array name="listTheme">
+        <item>تاریک</item>
+        <item>تضاد</item>
+        <item>سبک</item>
+    </string-array>
+    <string-array name="regionSizes">
+        <item>میلیونیم</item>
+        <item>کوچک</item>
+        <item>طبیعی</item>
+        <item>بزرگ</item>
+        <item>خیلی بزرگ</item>
+    </string-array>
+</resources>

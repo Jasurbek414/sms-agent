@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="bottom" android:orientation="vertical" android:padding="15.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:paddingRight="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:baselineAligned="false" android:layout_weight="1.0" android:paddingEnd="5.0dip">
+            <TextView android:gravity="center" android:id="@id/loginTextView" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/settings_login" />
+            <EditText android:id="@id/loginEdit" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip" android:inputType="text">
+                <requestFocus />
+            </EditText>
+            <Button android:id="@id/loginExitButton" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/exit" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" android:paddingStart="5.0dip">
+            <TextView android:gravity="center" android:id="@id/passwordTextView" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/settings_password" />
+            <EditText android:id="@id/passwordEdit" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip" android:inputType="textPassword" />
+            <Button android:id="@id/loginOkButton" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/ok" />
+        </LinearLayout>
+    </LinearLayout>
+    <Button android:id="@id/loginSettingsButton" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/settings" />
+</LinearLayout>

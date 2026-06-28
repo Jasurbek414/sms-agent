@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-files-path name="update_apk" path="Download/download" />
+    <external-files-path name="photo_report" path="Pictures/photo_report" />
+    <external-files-path name="driver_foto" path="Pictures/driver_foto" />
+</paths>

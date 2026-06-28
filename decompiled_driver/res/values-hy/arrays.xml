@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="NavSystemList">
+        <item>Waze</item>
+        <item>OrganicMaps(✅)</item>
+        <item>2GIS</item>
+        <item>Yandex Navigator</item>
+        <item>Google Maps</item>
+        <item>Cityguide</item>
+        <item>GeoNET</item>
+        <item>bGEO</item>
+        <item></item>
+        <item>Navitel</item>
+    </string-array>
+    <string-array name="NavSystemValues">
+        <item>waze</item>
+        <item>organicmaps</item>
+        <item>2gis</item>
+        <item>yandex</item>
+        <item>google</item>
+        <item>cityguide</item>
+        <item>geonet</item>
+        <item>bgeo</item>
+        <item>aznav</item>
+        <item>navitel</item>
+    </string-array>
+    <string-array name="foTextSizes">
+        <item>շատ փոխր</item>
+        <item>փոքր</item>
+        <item>նորմալ</item>
+        <item>մեծ</item>
+        <item>շատ մեծ</item>
+    </string-array>
+    <string-array name="foTextSizesValues">
+        <item>micro</item>
+        <item>small</item>
+        <item>normal</item>
+        <item>big</item>
+        <item>large</item>
+    </string-array>
+    <string-array name="listLocales">
+        <item>System</item>
+        <item>Русский</item>
+        <item>English</item>
+        <item>Deutsch</item>
+        <item></item>
+        <item>فارسی</item>
+        <item>հայերեն</item>
+        <item>Česky</item>
+        <item>ქართული</item>
+        <item>Hindi</item>
+        <item>Українська</item>
+        <item>Italiano</item>
+        <item>Latviešu</item>
+        <item>Svenska</item>
+        <item>Türkçe</item>
+        <item>Қарақалпақ</item>
+        <item>Оʻzbek</item>
+        <item>Español</item>
+        <item>Dansk</item>
+        <item>Français</item>
+        <item>Қазақша</item>
+        <item>Shqipe</item>
+        <item>Беларуская</item>
+        <item>lietuvių</item>
+    </string-array>
+    <string-array name="listOrientation">
+        <item>Авто</item>
+        <item>ուղիղ</item>
+        <item>կողքի</item>
+    </string-array>
+    <string-array name="listTheme">
+        <item>Մուգ</item>
+        <item>կոնտաստ</item>
+        <item>լուսավոր</item>
+    </string-array>
+    <string-array name="regionSizes">
+        <item>շատ փոքր</item>
+        <item>փոքր</item>
+        <item>նորամալ</item>
+        <item>մեծ</item>
+        <item>Շատ մեծ</item>
+    </string-array>
+    <string-array name="regionSizesValues">
+        <item>շատ փոքր</item>
+        <item>փոքր</item>
+        <item>նորմալ</item>
+        <item>Մեծ</item>
+        <item>Շատ մեծ</item>
+    </string-array>
+</resources>

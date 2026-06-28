@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:background="@drawable/background_message_me" android:paddingTop="10.0dip" android:paddingBottom="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="2.5dip" android:layout_marginBottom="2.5dip" android:paddingStart="5.0dip" android:paddingEnd="5.0dip" android:layout_marginStart="5.0dip" android:layout_marginEnd="5.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="5.0dip" android:layout_marginEnd="5.0dip">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textSize="@dimen/font_note" android:gravity="center" android:id="@id/timestamp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="03.11.2017 16:04" style="?textStyle" />
+            <TextView android:gravity="end" android:id="@id/name" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="My name" android:layout_weight="1.0" android:textDirection="locale" style="?accentedTextStyle" />
+        </LinearLayout>
+        <TextView android:layout_gravity="end" android:id="@id/text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Where are you?" android:textDirection="locale" style="?textStyle" />
+    </LinearLayout>
+    <FrameLayout android:orientation="vertical" android:padding="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="5.0dip" android:layout_marginEnd="5.0dip">
+        <ImageView android:layout_width="32.0sp" android:layout_height="32.0sp" android:src="@drawable/icon_fa_car" android:contentDescription="@string/message" />
+        <su.skat.client.ui.widgets.icons.Icon android:textColor="?primaryButtonBackground" android:layout_gravity="bottom|center" android:id="@id/sent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/icon_fa_check" />
+        <su.skat.client.ui.widgets.icons.Icon android:textColor="?primaryButtonBackground" android:layout_gravity="bottom|center" android:id="@id/delivered" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/icon_fa_check_double" />
+        <su.skat.client.ui.widgets.icons.Icon android:textColor="?accentedButtonBackground" android:layout_gravity="bottom|center" android:id="@id/error" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="1.0dip" android:text="@string/icon_fa_exclamation_triangle" />
+    </FrameLayout>
+</LinearLayout>

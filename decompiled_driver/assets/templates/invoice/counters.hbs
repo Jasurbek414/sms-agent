@@ -1,0 +1,12 @@
+{{#neq amount "0.00"}}
+<h1>{{ name }} {{ amount }}{{ $ }}</h1>
+
+<b>{{ __ "distance" }}</b>: {{ dist }}km {{#neq distAmount "0.00"}}({{ distAmount }}{{ $ }}){{/neq}}<br/>
+
+{{#neq standAmount "0.00"}}
+<b>{{ __ "stand" }}</b>: {{ stand }} ({{ standAmount }}{{ $ }})<br/>
+{{/neq}}
+
+<b>{{ __ "travel_time" }}</b>: {{ time }} {{#neq timeAmount "0.00"}}({{timeAmount}}{{ $ }}){{/neq}}<br/>
+
+{{/neq}}

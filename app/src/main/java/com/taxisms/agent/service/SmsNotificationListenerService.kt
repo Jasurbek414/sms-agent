@@ -79,7 +79,7 @@ class SmsNotificationListenerService : NotificationListenerService() {
 
                 val notification = sbn.notification ?: return@launch
                 val extras = notification.extras ?: return@launch
-                val title = extras.getString("android.title", "")
+                val title = extras.getString("android.title", "") ?: ""
                 val text = extras.getCharSequence("android.text", "").toString()
                 
                 val fullContent = "$title $text"
@@ -122,22 +122,38 @@ class SmsNotificationListenerService : NotificationListenerService() {
                 Timber.d("Tahlil natijasi: Phone=$extractedPhone, Price=$extractedPrice")
 
                 if (!extractedPhone.isNullOrEmpty() && !extractedPrice.isNullOrEmpty()) {
-                    // Shablon bo'yicha SMS matnini shakllantirish
-                    val template = settingsRepository.getValue(
-                        "finish_ride_template",
-                        "Yo'l haqi: {price} so'm. Rahmat!"
-                    )
-                    val messageText = template.replace("{price}", extractedPrice)
-
-                    val requestId = "notif_" + UUID.randomUUID().toString().take(8)
-                    
-                    // DB navbatiga qo'shish
-                    smsRepository.sendSms(extractedPhone, messageText, requestId)
-                    Timber.i("Bildirishnomadan avtomatik SMS navbatga olindi: Phone=$extractedPhone, Msg=$messageText")
+                    // Ikkala ma'lumot ham bitta bildirishnomada mavjud
+                    sendExtractedSms(extractedPhone, extractedPrice)
+                    settingsRepository.setValue("active_client_phone", "")
+                } else if (!extractedPhone.isNullOrEmpty() && extractedPrice.isNullOrEmpty()) {
+                    // Faqat telefon raqami bor (Safar boshlandi yoki buyurtma olindi)
+                    settingsRepository.setValue("active_client_phone", extractedPhone)
+                    Timber.d("Safar boshlandi: mijoz raqami keyingi yakunlov uchun saqlandi ($extractedPhone)")
+                } else if (extractedPhone.isNullOrEmpty() && !extractedPrice.isNullOrEmpty()) {
+                    // Faqat narx bor (Safar yakunlandi). Oldingi bosqichda saqlangan raqamni ishlatamiz
+                    val storedPhone = settingsRepository.getValue("active_client_phone", "")
+                    if (storedPhone.isNotEmpty()) {
+                        sendExtractedSms(storedPhone, extractedPrice)
+                        settingsRepository.setValue("active_client_phone", "") // Tozalash
+                    } else {
+                        Timber.w("Yo'l haqi aniqlandi ($extractedPrice), lekin faol saqlangan mijoz raqami topilmadi!")
+                    }
                 }
             } catch (e: Exception) {
                 Timber.e(e, "Bildirishnomani tahlil qilishda xatolik")
             }
         }
+    }
+
+    private suspend fun sendExtractedSms(phone: String, price: String) {
+        val template = settingsRepository.getValue(
+            "finish_ride_template",
+            "Yo'l haqi: {price} so'm. Rahmat!"
+        )
+        val messageText = template.replace("{price}", price)
+        val requestId = "notif_" + UUID.randomUUID().toString().take(8)
+        
+        smsRepository.sendSms(phone, messageText, requestId)
+        Timber.i("Bildirishnomadan avtomatik SMS navbatga olindi: Phone=$phone, Msg=$messageText")
     }
 }

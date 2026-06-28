@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false" android:paddingStart="2.5dip" android:paddingEnd="2.5dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/priceContainer" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TextView android:textStyle="bold" android:layout_gravity="center" android:id="@id/price" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="221+50" android:layout_marginStart="2.5dip" android:layout_marginEnd="2.5dip" style="?increasedTextStyle" />
+        <TextView android:textSize="@dimen/font_base" android:gravity="center" android:id="@id/currency" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="EUR" android:layout_marginStart="2.5dip" android:layout_marginEnd="2.5dip" />
+    </LinearLayout>
+    <TextView android:ellipsize="middle" android:gravity="end" android:id="@id/clientName" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="Джоней Валерьянович Джорданов Первый (Былинный Промах продукшион)" android:singleLine="true" android:layout_weight="1.0" android:layout_marginStart="2.5dip" android:layout_marginEnd="2.5dip" style="?textStyle" />
+    <su.skat.client.ui.widgets.icons.IconButton android:textSize="@dimen/small_icon_size" android:layout_gravity="center" android:id="@id/callClientButton" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/icon_fa_phone" android:layout_marginStart="2.5dip" android:layout_marginEnd="2.5dip" style="?buttonStyle" />
+</LinearLayout>
