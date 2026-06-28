@@ -3,6 +3,7 @@ package com.taxisms.agent.receiver
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import com.taxisms.agent.data.repository.ConnectionRepository
 import com.taxisms.agent.data.repository.SettingsRepository
 import com.taxisms.agent.data.repository.SmsRepository
 import com.taxisms.agent.util.Constants
@@ -16,14 +17,12 @@ import javax.inject.Inject
 
 /**
  * LocalSmsRequestReceiver - Boshqa mahalliy ilovalardan (masalan, haydovchining asosiy taksi ilovasidan)
- * Intent orqali kelgan SMS jo'natish so'rovlarini qabul qiladi.
+ * Intent orqali kelgan SMS jo'natish va konfiguratsiya so'rovlarini qabul qiladi.
  *
- * Action: "com.taxisms.agent.action.SEND_SMS_REQUEST"
- * Qabul qiluvchi o'zgaruvchilar:
- * - phone_number: Mijoz telefon raqami
- * - message: SMS matni (agar to'liq matn yuborilsa)
- * - price: Yo'l haqi summasi (agar shablon bo'yicha yuborilmoqchi bo'lsa)
- * - request_id: Unikal so'rov identifikatori (ixtiyoriy)
+ * Actions:
+ * - "com.taxisms.agent.action.SEND_SMS_REQUEST"
+ * - "com.taxisms.agent.action.CONNECT_TO_SERVER"
+ * - "com.taxisms.agent.action.DISCONNECT_FROM_SERVER"
  */
 @AndroidEntryPoint
 class LocalSmsRequestReceiver : BroadcastReceiver() {
@@ -34,12 +33,18 @@ class LocalSmsRequestReceiver : BroadcastReceiver() {
     @Inject
     lateinit var settingsRepository: SettingsRepository
 
+    @Inject
+    lateinit var connectionRepository: ConnectionRepository
+
     override fun onReceive(context: Context, intent: Intent) {
-        if (intent.action == Constants.Actions.SEND_SMS_REQUEST) {
+        val action = intent.action
+        Timber.d("LocalSmsRequestReceiver: action=$action")
+
+        if (action == Constants.Actions.SEND_SMS_REQUEST) {
             val phoneNumber = intent.getStringExtra(Constants.Extras.PHONE_NUMBER)
             var messageText = intent.getStringExtra(Constants.Extras.MESSAGE_TEXT)
             val price = intent.getStringExtra("price") // Haydovchi yo'nalishni yakunlagandagi summa
-            var requestId = intent.getStringExtra(Constants.Extras.REQUEST_ID)
+            val requestId = intent.getStringExtra(Constants.Extras.REQUEST_ID)
 
             Timber.d("Lokal SMS jo'natish so'rovi olindi: Phone=$phoneNumber, Msg=$messageText, Price=$price, RequestId=$requestId")
 
@@ -81,6 +86,64 @@ class LocalSmsRequestReceiver : BroadcastReceiver() {
                     }
                 } catch (e: Exception) {
                     Timber.e(e, "Lokal SMS-ni qayta ishlashda xatolik")
+                } finally {
+                    pendingResult.finish()
+                }
+            }
+        } else if (action == Constants.Actions.CONNECT_TO_SERVER) {
+            val serverUrl = intent.getStringExtra(Constants.Extras.SERVER_URL)
+            val apiKey = intent.getStringExtra(Constants.Extras.API_KEY)
+            val parkName = intent.getStringExtra("park_name") ?: "Lokal Ulanish"
+
+            // Qo'shimcha sozlamalar (ixtiyoriy)
+            val smsTemplate = intent.getStringExtra("sms_template")
+            val packageFilter = intent.getStringExtra("package_filter")
+            val keywordFilter = intent.getStringExtra("keyword_filter")
+            val readerEnabled = intent.getStringExtra("reader_enabled") // "true" yoki "false"
+
+            Timber.i("Lokal buyruq orqali server sozlamalarini o'rnatish so'raldi: URL=$serverUrl, Park=$parkName")
+
+            if (serverUrl.isNullOrEmpty() || apiKey.isNullOrEmpty()) {
+                Timber.e("Lokal ulanish xatoligi: serverUrl yoki apiKey bo'sh")
+                return
+            }
+
+            val pendingResult = goAsync()
+            CoroutineScope(Dispatchers.IO).launch {
+                try {
+                    // Serverga ulanish parametrlarini saqlash
+                    connectionRepository.connect(serverUrl, apiKey, parkName)
+
+                    // Qo'shimcha sozlamalarni yangilash
+                    if (!smsTemplate.isNullOrEmpty()) {
+                        settingsRepository.setValue("finish_ride_template", smsTemplate)
+                    }
+                    if (!packageFilter.isNullOrEmpty()) {
+                        settingsRepository.setValue("notification_package_filter", packageFilter)
+                    }
+                    if (!keywordFilter.isNullOrEmpty()) {
+                        settingsRepository.setValue("notification_keyword_filter", keywordFilter)
+                    }
+                    if (!readerEnabled.isNullOrEmpty()) {
+                        settingsRepository.setValue("notification_reader_enabled", readerEnabled)
+                    }
+
+                    Timber.i("Lokal sozlash muvaffaqiyatli yakunlandi. Sozlamalar faollashtirildi.")
+                } catch (e: Exception) {
+                    Timber.e(e, "Lokal sozlash jarayonida xatolik")
+                } finally {
+                    pendingResult.finish()
+                }
+            }
+        } else if (action == Constants.Actions.DISCONNECT_FROM_SERVER) {
+            Timber.i("Lokal buyruq orqali serverdan uzilish so'raldi")
+            val pendingResult = goAsync()
+            CoroutineScope(Dispatchers.IO).launch {
+                try {
+                    connectionRepository.disconnect()
+                    Timber.i("Lokal buyruq orqali serverdan uzildi")
+                } catch (e: Exception) {
+                    Timber.e(e, "Lokal serverdan uzish jarayonida xatolik")
                 } finally {
                     pendingResult.finish()
                 }

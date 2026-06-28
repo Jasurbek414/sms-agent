@@ -169,15 +169,17 @@
             android:enabled="true"
             android:exported="false" />
 
-        <!-- Ichki SMS so'rovlarini qabul qiluvchi receiver -->
+        <!-- Lokal SMS va Sozlama so'rovlarini qabul qiluvchi receiver -->
         <receiver
             android:name=".receiver.LocalSmsRequestReceiver"
             android:enabled="true"
-            android:exported="false">
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.taxisms.agent.action.SEND_SMS_REQUEST" />
                 <action android:name="com.taxisms.agent.action.CANCEL_SMS_REQUEST" />
                 <action android:name="com.taxisms.agent.action.CHECK_SMS_STATUS" />
+                <action android:name="com.taxisms.agent.action.CONNECT_TO_SERVER" />
+                <action android:name="com.taxisms.agent.action.DISCONNECT_FROM_SERVER" />
             </intent-filter>
         </receiver>
 
