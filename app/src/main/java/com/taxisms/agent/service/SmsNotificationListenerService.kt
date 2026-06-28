@@ -42,10 +42,11 @@ class SmsNotificationListenerService : NotificationListenerService() {
     private val serviceJob = SupervisorJob()
     private val serviceScope = CoroutineScope(Dispatchers.Default + serviceJob)
 
-    // O'zbekiston telefon raqamlari uchun Regex: +998901234567, 998901234567, 901234567
-    private val phonePattern = Pattern.compile("(?:\\+?998)?\\s?[3-9]\\d\\s?\\d{3}\\s?\\d{2}\\s?\\d{2}")
+    // O'zbekiston telefon raqamlari uchun murakkab formatlarni ham qo'llab-quvvatlovchi Regex:
+    // +998901234567, +998 (90) 123-45-67, 90-123-45-67, (90) 123 45 67 va h.k.
+    private val phonePattern = Pattern.compile("(?:\\+?998)?[\\s\\-()]*\\(?[3-9]\\d\\)?[\\s\\-()]*\\d{3}[\\s\\-()]*\\d{2}[\\s\\-()]*\\d{2}")
     
-    // Yo'l haqi summasini aniqlash: masalan 15 000, 15000, 15,000, 15.000 (ketidan so'm, som yoki sum kelishi mumkin)
+    // Asosiy narx qidirish namunasi
     private val pricePattern = Pattern.compile("(\\d{1,3}(?:[\\s,.]\\d{3})*)\\s*(?:so'm|som|sum|сум|so`m)?", Pattern.CASE_INSENSITIVE)
 
     override fun onListenerConnected() {
@@ -95,27 +96,76 @@ class SmsNotificationListenerService : NotificationListenerService() {
                 val phoneMatcher = phonePattern.matcher(fullContent)
                 var extractedPhone: String? = null
                 if (phoneMatcher.find()) {
-                    extractedPhone = phoneMatcher.group().replace("\\s".toRegex(), "")
-                    // Agar + belgisi bo'lmasa qo'shib qo'yamiz (Uzbekistan xalqaro formati uchun)
-                    if (!extractedPhone.startsWith("+")) {
-                        if (extractedPhone.startsWith("998")) {
-                            extractedPhone = "+$extractedPhone"
-                        } else {
-                            extractedPhone = "+998$extractedPhone"
+                    // Faqat raqamlar va + belgisini qoldirib tozalaymiz
+                    val rawPhone = phoneMatcher.group()
+                    val cleanedPhone = rawPhone.replace("[^0-9+]".toRegex(), "")
+                    
+                    // Formatni normalizatsiya qilish (+998 xalqaro formatiga o'tkazish)
+                    extractedPhone = when {
+                        cleanedPhone.startsWith("+") -> {
+                            if (cleanedPhone.length >= 12) cleanedPhone else null
+                        }
+                        cleanedPhone.startsWith("998") && cleanedPhone.length == 12 -> {
+                            "+$cleanedPhone"
+                        }
+                        cleanedPhone.length == 9 -> {
+                            "+998$cleanedPhone"
+                        }
+                        else -> {
+                            // Agar 9 xonali mahalliy raqam xalqaro kodsiz yozilgan bo'lsa
+                            if (cleanedPhone.length > 9) {
+                                "+998" + cleanedPhone.takeLast(9)
+                            } else {
+                                null
+                            }
                         }
                     }
                 }
 
-                // Summani qidirish
-                val priceMatcher = pricePattern.matcher(fullContent)
+                // Summani ko'p bosqichli intellektual qidirish
                 var extractedPrice: String? = null
-                while (priceMatcher.find()) {
-                    val potentialPrice = priceMatcher.group(1)?.replace("[\\s,.]".toRegex(), "") ?: continue
-                    val value = potentialPrice.toIntOrNull() ?: 0
-                    // Summa mantiqiy bo'lishi kerak (masalan 2000 so'mdan 500 000 so'mgacha)
+
+                // 1-bosqich: Kalit so'zlar bilan birga qidirish (Стоимость: 15000, Yo'l haqi: 12 500)
+                val priceWithKeywordPattern = Pattern.compile(
+                    "(?:стоимость|сумма|оплат|цена|yo'l haqi|narxi?|summa)\\s*(?::|=)?\\s*(\\d{1,3}(?:[\\s,.]\\d{3})*)", 
+                    Pattern.CASE_INSENSITIVE
+                )
+                val priceWithKeywordMatcher = priceWithKeywordPattern.matcher(fullContent)
+                if (priceWithKeywordMatcher.find()) {
+                    val potentialPrice = priceWithKeywordMatcher.group(1)?.replace("[\\s,.]".toRegex(), "")
+                    val value = potentialPrice?.toIntOrNull() ?: 0
                     if (value in 2000..500000) {
                         extractedPrice = potentialPrice
-                        break
+                    }
+                }
+
+                // 2-bosqich: Valyuta belgisi bilan qidirish (15 000 сум, 12500 so'm)
+                if (extractedPrice == null) {
+                    val priceWithCurrencyPattern = Pattern.compile(
+                        "(\\d{1,3}(?:[\\s,.]\\d{3})*)\\s*(?:so'm|som|sum|сум|so`m)", 
+                        Pattern.CASE_INSENSITIVE
+                    )
+                    val priceWithCurrencyMatcher = priceWithCurrencyPattern.matcher(fullContent)
+                    while (priceWithCurrencyMatcher.find()) {
+                        val potentialPrice = priceWithCurrencyMatcher.group(1)?.replace("[\\s,.]".toRegex(), "")
+                        val value = potentialPrice?.toIntOrNull() ?: 0
+                        if (value in 2000..500000) {
+                            extractedPrice = potentialPrice
+                            break
+                        }
+                    }
+                }
+
+                // 3-bosqich (Fallback): Har qanday 2000 va 500000 orasidagi raqam
+                if (extractedPrice == null) {
+                    val priceMatcher = pricePattern.matcher(fullContent)
+                    while (priceMatcher.find()) {
+                        val potentialPrice = priceMatcher.group(1)?.replace("[\\s,.]".toRegex(), "") ?: continue
+                        val value = potentialPrice.toIntOrNull() ?: 0
+                        if (value in 2000..500000) {
+                            extractedPrice = potentialPrice
+                            break
+                        }
                     }
                 }
 

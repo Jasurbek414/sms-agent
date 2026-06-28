@@ -124,6 +124,7 @@ class SmsAgentService : Service() {
                     val pendingSms = smsRepository.getNextPendingSms(Constants.SmsStatus.PENDING)
                     if (pendingSms != null) {
                         if (rateLimiter.isLimitExceeded()) {
+                            Timber.w("SMS yuborish limiti (kunlik 250 / soatlik 50) oshib ketdi. Navbat vaqtincha to'xtatildi.")
                             delay(Constants.Defaults.RETRY_DELAY_MS)
                             continue
                         }

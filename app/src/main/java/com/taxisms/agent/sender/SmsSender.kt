@@ -36,7 +36,8 @@ class SmsSender @Inject constructor(
             val smsManager: SmsManager = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
                 val subscriptionId = simManager.getSubscriptionIdForSlot(slotIndex)
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                    context.getSystemService(SmsManager::class.java).createForSubscriptionId(subscriptionId)
+                    val smsManagerInstance = context.getSystemService(SmsManager::class.java)
+                    smsManagerInstance?.createForSubscriptionId(subscriptionId) ?: @Suppress("DEPRECATION") SmsManager.getSmsManagerForSubscriptionId(subscriptionId)
                 } else {
                     @Suppress("DEPRECATION")
                     SmsManager.getSmsManagerForSubscriptionId(subscriptionId)
