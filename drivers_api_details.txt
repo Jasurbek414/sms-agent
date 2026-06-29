@@ -1,0 +1,174 @@
+
+--- MATCH 1 ---
+der" id="получение-списка-водителей"><a href="#получение-списка-водителей" class="toc-anchor">¶</a> Получение списка водителей</h1><div>
+</div><pre>$ curl -X GET -G http://scat-server/api/drivers \
+    -d api_key=0dcf277e-0317-4eef-9142-24b7a2b4788a
+
+{"status": "DONE", "response": {"drivers": [{"first_name": "Иван", "code": "001", "car_brand": "Ниссан", "car_model": "Альмера", "car_reg_num": "A476BO", "lon": "12.345678", "lat": "87.654321", "permit_number": "58567437900", "car_year": "1997", "phone": "89123456789", "id": 1}]}}
+</pre><div>
+</div><div class="table-responsive">
+<table class="table table-bordered table-condensed"><colgroup><col class="col-xs-1"></colgroup>
+<tbody>
+<tr>
+<th>URL</th>
+<td>/api/drivers</td>
+</tr>
+<tr>
+<th>Метод запроса</th>
+<td>GET</td>
+</tr>
+<tr>
+<th>Требуется ключ</th>
+<td>Да</td>
+</tr>
+</tbody>
+</table>
+</div><div>
+</div><div class="table-responsive">
+<table class="table table-striped table-bordered table-condensed"><colgroup><col class="col-xs-1"></colgroup>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+<th>Допустимые значения</th>
+<th>Значение по-умолчанию</th>
+<th>Доступен с версии</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="5">Необязательные параметры</td>
+</tr>
+<tr>
+<td><b>service_id</b></td>
+<td>Идентификатор службы</td>
+<td>Натуральное число</td>
+<td><b>-</b></td>
+<td><a href="#1.13.1">1.13.1</a></td>
+</tr>
+<tr>
+<td><b>city_id</b></td>
+<td>Идентификатор города</td>
+<td>Натуральное число</td>
+<td><b>-</b></td>
+<td><a href="#1.13.1">1.13.1</a></td>
+</tr>
+</tbody>
+</table>
+</div><div>
+</div><h3 class="toc-header" id="формат-ответа-14"><a href="#формат-ответа-14" class="toc-anchor">¶</a> Формат ответа</h3><div>
+</div><pre>{
+    "drivers":
+    [
+        {
+            id: int,                  // идентификатор водителя (<a href="#1.2.0">1.2.0</a>)
+            first_name: str,          // имя (<a href="#1.2.0">1.2.0</a>)
+            code: str,                // позывной (<a href="#1.2.0">1.2.0</a>)
+            phone: str,               // номер телефона (<a href="#1.8.3">1.8.3</a>)
+            permit_number: str/null,  // номер разрешения (<a href="#1.2.0">1.2.0</a>)
+            lat: str,                 // широта (<a href="#1.2.0">1.2.0</a>)
+            lon: str,                 // долгота (<a href="#1.2.0">1.2.0</a>)
+            car_brand: str,           // марка авто (<a href="#1.2.0">1.2.0</a>)
+            car_model: str,           // модель (<a href="#1.2.0">1.2.0</a>)
+            car_reg_num: str,         // гос.номер (<a href="#1.2.0">1.2.0</a>)
+            car_year: str/null        // год выпуска (<a href="#1.2.0">1.2.0</a>)
+        },
+
+        // ...
+    ]
+}
+</pre><div>
+</div><h1 class="toc-header" id="получение-координаты-водителя-по-его-позывному"><a href="#получение-координаты-водителя-по-его-позывному" class="toc-anchor">¶</a> Получение координаты водителя по его позывному</h1><div>
+</div><pre>$ curl -X GET -G http://scat-server/api/drivers \
+    -d api_key=0dcf277e-0317-4eef-9142-24b7a2b4788a \
+    -d code=001
+
+{"status": "DONE", "response": {"bearing": 0, "region_id": 45, "city_id": 1, "lon": 53.
+
+
+--- MATCH 2 ---
+ id="получение-списка-водителей-1"><a href="#получение-списка-водителей-1" class="toc-anchor">¶</a> Получение списка водителей</h1><div>
+</div><pre>$ curl -X GET -G http://scat-server/api/drivers \
+    -d api_key=0dcf277e-0317-4eef-9142-24b7a2b4788a
+
+{"status": "DONE", "response": {"drivers": [{"first_name": "Иван", "code": "001", "car_brand": "Ниссан", "car_model": "Альмера", "car_reg_num": "A476BO", "lon": "12.345678", "lat": "87.654321", "permit_number": "58567437900", "car_year": "1997", "phone": "89123456789", "id": 1}]}}
+</pre><div>
+</div><div class="table-responsive">
+<table class="table table-bordered table-condensed"><colgroup><col class="col-xs-1"></colgroup>
+<tbody>
+<tr>
+<th>URL</th>
+<td>/api/drivers</td>
+</tr>
+<tr>
+<th>Метод запроса</th>
+<td>GET</td>
+</tr>
+<tr>
+<th>Требуется ключ</th>
+<td>Да</td>
+</tr>
+</tbody>
+</table>
+</div><div>
+</div><div class="table-responsive">
+<table class="table table-striped table-bordered table-condensed"><colgroup><col class="col-xs-1"></colgroup>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание</th>
+<th>Допустимые значения</th>
+<th>Значение по-умолчанию</th>
+<th>Доступен с версии</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="5">Необязательные параметры</td>
+</tr>
+<tr>
+<td><b>service_id</b></td>
+<td>Идентификатор службы</td>
+<td>Натуральное число</td>
+<td><b>-</b></td>
+<td><a href="#1.13.1">1.13.1</a></td>
+</tr>
+<tr>
+<td><b>city_id</b></td>
+<td>Идентификатор города</td>
+<td>Натуральное число</td>
+<td><b>-</b></td>
+<td><a href="#1.13.1">1.13.1</a></td>
+</tr>
+</tbody>
+</table>
+</div><div>
+</div><h3 class="toc-header" id="формат-ответа-33"><a href="#формат-ответа-33" class="toc-anchor">¶</a> Формат ответа</h3><div>
+</div><pre>{
+    "drivers":
+    [
+        {
+            id: int,                  // идентификатор водителя (<a href="#1.2.0">1.2.0</a>)
+            first_name: str,          // имя (<a href="#1.2.0">1.2.0</a>)
+            code: str,                // позывной (<a href="#1.2.0">1.2.0</a>)
+            phone: str,               // номер телефона (<a href="#1.8.3">1.8.3</a>)
+            permit_number: str/null,  // номер разрешения (<a href="#1.2.0">1.2.0</a>)
+            lat: str,                 // широта (<a href="#1.2.0">1.2.0</a>)
+            lon: str,                 // долгота (<a href="#1.2.0">1.2.0</a>)
+            car_brand: str,           // марка авто (<a href="#1.2.0">1.2.0</a>)
+            car_model: str,           // модель (<a href="#1.2.0">1.2.0</a>)
+            car_reg_num: str,         // гос.номер (<a href="#1.2.0">1.2.0</a>)
+            car_year: str/null        // год выпуска (<a href="#1.2.0">1.2.0</a>)
+        },
+
+        // ...
+    ]
+}
+</pre><div>
+</div><h1 class="toc-header" id="получение-координаты-водителя-по-его-позывному-1"><a href="#получение-координаты-водителя-по-его-позывному-1" class="toc-anchor">¶</a> Получение координаты водителя по его позывному</h1><div>
+</div><pre>$ curl -X GET -G http://scat-server/api/drivers \
+    -d api_key=0dcf277e-0317-4eef-9142-24b7a2b4788a \
+    -d code=001
+
+{"status": "DONE", "response": {"bearing": 0, "region_id": 45, "city_id": 1, "lon":
+

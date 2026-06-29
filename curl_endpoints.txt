@@ -1,0 +1,41 @@
+--- CURL COMMANDS ---
+curl -X GET -G http://scat-server/api/changeset
+curl -X GET -G http://scat-server/api/client/bonus/count \
+curl -X GET -G http://scat-server/api/customer/balance \
+curl -X GET -G http://scat-server/api/driver/balance \
+curl -X GET -G http://scat-server/api/drivers \
+curl -X GET -G http://scat-server/api/extras \
+curl -X GET -G http://scat-server/api/order \
+curl -X GET -G http://scat-server/api/order/pre_cost
+curl -X GET -G http://scat-server/api/order/pre_cost \
+curl -X GET -G http://scat-server/api/order/status \
+curl -X GET -G http://scat-server/api/rates \
+curl -X GET -G http://scat-server/api/region_by_address \
+curl -X GET -G http://scat-server/api/region_by_coord \
+curl -X GET -G http://scat-server/api/regions \
+curl -X GET -G http://scat-server/api/services \
+curl -X GET -G http://scat-server/api/streets \
+curl -X GET -G http://scat-server/api/version
+curl -X POST http://scat-server/api/cancel_order \
+curl -X POST http://scat-server/api/customer/balance \
+curl -X POST http://scat-server/api/driver/balance \
+curl -X POST http://scat-server/api/order \
+curl -X POST http://scat-server/api/order/status \
+
+--- API PATHS IN TABLES ---
+<td>/api/cancel_order</td>
+<td>/api/changeset</td>
+<td>/api/client/bonus/count</td>
+<td>/api/customer/balance</td>
+<td>/api/driver/balance</td>
+<td>/api/drivers</td>
+<td>/api/extras</td>
+<td>/api/order/pre_cost</td>
+<td>/api/order/status</td>
+<td>/api/order</td>
+<td>/api/rates</td>
+<td>/api/region_by_address</td>
+<td>/api/region_by_coord</td>
+<td>/api/services</td>
+<td>/api/streets</td>
+<td>/api/version</td>
