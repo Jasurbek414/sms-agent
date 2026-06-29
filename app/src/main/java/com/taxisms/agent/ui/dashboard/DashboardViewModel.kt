@@ -132,6 +132,18 @@ class DashboardViewModel @Inject constructor(
                     settingsRepository.setValue("notification_keyword_filter", "Стоимость")
                 }
             }
+            
+            // Generate unique agent_id if it's empty or default
+            val currentAgentId = settingsRepository.getValue("agent_id", "")
+            if (currentAgentId.isEmpty() || currentAgentId == "agent_device") {
+                val manufacturer = android.os.Build.MANUFACTURER
+                val model = android.os.Build.MODEL
+                val cleanManufacturer = manufacturer.replace(Regex("[^a-zA-Z0-9]"), "")
+                val cleanModel = model.replace(Regex("[^a-zA-Z0-9]"), "")
+                val randomSuffix = (1000..9999).random()
+                val uniqueAgentId = "${cleanManufacturer}_${cleanModel}_$randomSuffix"
+                settingsRepository.setValue("agent_id", uniqueAgentId)
+            }
         }
     }
 
