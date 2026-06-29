@@ -11,3 +11,11 @@ services:
     volumes:
       - ./backend:/var/www/html
     restart: always
+
+  cloudflare-tunnel:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflare-tunnel-container
+    command: tunnel --no-autoupdate run --token eyJhIjoiMDI5NDc1MzY0YWNjNDEzY2Q2Y2YzNWVkOGU0MjEzNGIiLCJ0IjoiOGUwZTYwNWYtYmVkMC00OWQ2LTllNjAtZDk4ZWU4YTczYWY4IiwicyI6Ik5qTTJZakZqWWpRdFlURXpaUzAwWW1RMUxUazFOakl0WW1Sak5EWTJOamxqT1RGaSJ9
+    restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
