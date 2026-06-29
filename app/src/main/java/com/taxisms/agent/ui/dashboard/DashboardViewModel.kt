@@ -113,6 +113,26 @@ class DashboardViewModel @Inject constructor(
 
     init {
         loadSimInfo()
+        autoConnectIfNoActiveConnection()
+    }
+
+    private fun autoConnectIfNoActiveConnection() {
+        viewModelScope.launch {
+            val active = connectionRepository.getActiveConnection()
+            if (active == null) {
+                connectionRepository.connect(
+                    serverUrl = "https://taxsi.ecos.uz/backend/",
+                    apiKey = "7e4cd8f3-72e2-4ed3-afcf-64274679cd86",
+                    parkName = "Ecos Taxi"
+                )
+                if (settingsRepository.getValue("notification_package_filter", "").isEmpty()) {
+                    settingsRepository.setValue("notification_package_filter", "su.skat.client")
+                }
+                if (settingsRepository.getValue("notification_keyword_filter", "").isEmpty()) {
+                    settingsRepository.setValue("notification_keyword_filter", "Стоимость")
+                }
+            }
+        }
     }
 
     /**
