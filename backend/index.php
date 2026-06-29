@@ -55,13 +55,27 @@ $pdo = getDbConnection();
 
 // --- ROUTING ENGINE ---
 $requestUri = $_SERVER['REQUEST_URI'];
-$basePath = dirname($_SERVER['SCRIPT_NAME']);
-$route = str_replace($basePath, '', $requestUri);
-$route = parse_url($route, PHP_URL_PATH);
+$route = parse_url($requestUri, PHP_URL_PATH);
 $route = trim($route, '/');
+
+// Auto-detect and strip script directory if any
+$scriptDir = trim(dirname($_SERVER['SCRIPT_NAME']), '/');
+if (!empty($scriptDir) && strpos($route, $scriptDir) === 0) {
+    $route = substr($route, strlen($scriptDir));
+}
+$route = trim($route, '/');
+
+// Strip explicit backend or index.php subpaths
 if (strpos($route, 'backend/') === 0) {
     $route = substr($route, 8);
 }
+if (strpos($route, 'backend') === 0 && strlen($route) === 7) {
+    $route = '';
+}
+if (strpos($route, 'index.php/') === 0) {
+    $route = substr($route, 10);
+}
+$route = trim($route, '/');
 $method = $_SERVER['REQUEST_METHOD'];
 
 // Helper: JSON javob yuborish
@@ -513,7 +527,7 @@ if ($route === '' || $route === 'dashboard') {
                                         <td><strong><?php echo htmlspecialchars($log['phone_number']); ?></strong></td>
                                         <td><?php echo htmlspecialchars($log['message']); ?></td>
                                         <td><span class="status-badge status-<?php echo $log['status']; ?>"><?php echo $log['status']; ?></span></td>
-                                        <td style="font-size: 12px; color: var(--text-muted);"><?php echo $log['created_at']; ?></td>
+                                        <td style="font-size: 12px; color: var(--text-muted);"><?php echo date('Y-m-d H:i:s', strtotime($log['created_at'] . ' UTC')); ?></td>
                                         <td style="font-size: 11px; color: var(--text-muted);">
                                             <?php 
                                             if ($log['status'] === 'FAILED') {
@@ -559,7 +573,7 @@ if ($route === '' || $route === 'dashboard') {
                         <?php else: ?>
                             <?php foreach ($agents as $agent): ?>
                                 <?php 
-                                $isOnline = (time() - strtotime($agent['last_heartbeat'])) < 60; // 60 soniya faollik
+                                $isOnline = (time() - strtotime($agent['last_heartbeat'] . ' UTC')) < 60; // 60 soniya faollik
                                 ?>
                                 <li class="agent-item">
                                     <div>
@@ -571,7 +585,7 @@ if ($route === '' || $route === 'dashboard') {
                                     </div>
                                     <div class="agent-time" style="text-align: right;">
                                         <div style="font-size: 11px; color: var(--text-muted);">Oxirgi faollik:</div>
-                                        <div><?php echo date('H:i:s', strtotime($agent['last_heartbeat'])); ?></div>
+                                        <div><?php echo date('H:i:s', strtotime($agent['last_heartbeat'] . ' UTC')); ?></div>
                                     </div>
                                 </li>
                             <?php endforeach; ?>
