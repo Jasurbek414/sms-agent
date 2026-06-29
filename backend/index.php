@@ -153,6 +153,18 @@ if (preg_match('/^api\/v1\/agent\/([^\/]+)\/pending-sms$/', $route, $matches) &&
     checkAuthorization();
     $agentId = $matches[1];
     
+    // Agent statusini avtomatik ro'yxatdan o'tkazish/yangilash (Heartbeat)
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $checkAgent = $pdo->prepare("SELECT id FROM agents WHERE agent_id = ?");
+    $checkAgent->execute([$agentId]);
+    if ($checkAgent->fetch()) {
+        $updateAgent = $pdo->prepare("UPDATE agents SET last_heartbeat = datetime('now'), ip_address = ? WHERE agent_id = ?");
+        $updateAgent->execute([$ip, $agentId]);
+    } else {
+        $insertAgent = $pdo->prepare("INSERT INTO agents (agent_id, device_name, ip_address, last_heartbeat) VALUES (?, 'Android Phone', ?, datetime('now'))");
+        $insertAgent->execute([$agentId, $ip]);
+    }
+    
     // PENDING bo'lgan SMS-larni olish va ularni SENDING-ga o'tkazish
     $pdo->beginTransaction();
     try {
