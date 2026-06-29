@@ -12,6 +12,21 @@ services:
       - ./backend:/var/www/html
     restart: always
 
+  smpp-server:
+    build:
+      context: ./smpp_server
+      dockerfile: Dockerfile
+    container_name: smpp-server-container
+    ports:
+      - "2775:2775"
+    environment:
+      - PORT=2775
+      - PHP_BACKEND_URL=http://sms-agent-bridge-container/send
+      - API_KEY=7e4cd8f3-72e2-4ed3-afcf-64274679cd86
+    depends_on:
+      - sms-agent-bridge
+    restart: always
+
   cloudflare-tunnel:
     image: cloudflare/cloudflared:latest
     container_name: cloudflare-tunnel-container
