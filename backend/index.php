@@ -59,6 +59,9 @@ $basePath = dirname($_SERVER['SCRIPT_NAME']);
 $route = str_replace($basePath, '', $requestUri);
 $route = parse_url($route, PHP_URL_PATH);
 $route = trim($route, '/');
+if (strpos($route, 'backend/') === 0) {
+    $route = substr($route, 8);
+}
 $method = $_SERVER['REQUEST_METHOD'];
 
 // Helper: JSON javob yuborish
